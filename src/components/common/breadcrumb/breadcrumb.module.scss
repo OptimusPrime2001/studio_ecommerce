@@ -1,0 +1,16 @@
+.breadcrumbWrapper {
+  a {
+    color: #605f5f;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    font-weight: $medium;
+    &:hover {
+      color: $neutral_07;
+    }
+  }
+  span {
+    font-weight: $medium;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}

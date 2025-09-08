@@ -1,0 +1,15 @@
+.countIconWrapper {
+  display: flex;
+  gap: 0 $s4;
+  align-items: center;
+
+  .index_ellipse {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: $f12;
+    font-weight: $bold;
+    color: $neutral_00;
+    background-color: $neutral_07;
+    border-radius: 50%;
+  }
+}

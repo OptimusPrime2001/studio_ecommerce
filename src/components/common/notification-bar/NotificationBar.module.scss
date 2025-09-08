@@ -1,0 +1,23 @@
+.notification_bar {
+  height: 2.5rem;
+  background-color: $neutral_02;
+  position: relative;
+  gap: 0 12px;
+  @include flex-center();
+  font-weight: $semibold;
+  line-height: 1.375rem;
+
+  .shop_now {
+    color: $secondary_color;
+    display: flex;
+    align-items: center;
+    gap: 0 $s4;
+    border-bottom: 1px solid $secondary_color;
+  }
+
+  .close_icon {
+    position: absolute;
+    cursor: pointer;
+    right: 1rem
+  }
+}

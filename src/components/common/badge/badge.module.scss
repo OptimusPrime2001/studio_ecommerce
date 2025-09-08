@@ -1,0 +1,13 @@
+.badgeWrapper {
+  border: 0.25rem;
+  padding: 0.25rem 0.875rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  display: flex;
+  flex-direction: row;
+  border-radius: $s4;
+  align-items: center;
+  justify-content: center;
+  @include flex-center;
+}

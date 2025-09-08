@@ -1,0 +1,9 @@
+.logo{
+  font-size: $f24;
+  line-height: $lh125;
+  font-weight:$semibold;
+  text-wrap: nowrap;
+  @include media-breakpoint-down(md){
+    font-size: $f16;
+  }
+}
