@@ -1,7 +1,6 @@
 'use client';
 import Logo from '@common/logo/logo';
 import { Button } from '@components/ui/button';
-import { Dialog, DialogContent, DialogTrigger } from '@components/ui/dialog';
 import { Input } from '@components/ui/input';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@components/ui/sheet';
 import CloseIcon from '@icons/close';
@@ -10,9 +9,7 @@ import MenuBars from '@icons/menu-bars';
 import SearchIcon from '@icons/search-icon';
 import ShoppingBag from '@icons/shopping-bag';
 import { listSocialIcon, navigationLink } from '@lib/constant';
-import { cn, uniqueArray } from '@lib/utils';
-import { DialogDescription, DialogTitle } from '@radix-ui/react-dialog';
-import searchIcon from '@svgs/searchIcon.svg';
+import { cn } from '@lib/utils';
 import userIcon from '@svgs/userIcon.svg';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -89,27 +86,7 @@ export const Header = () => {
       </SheetHeader>
     </SheetContent>
   );
-  const renderSearchBox = () => (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Image src={searchIcon} alt='search' />
-      </DialogTrigger>
-      <DialogContent className={cn( 'sm:max-w-[425px]', styles.searchBoxUi )}>
-        <DialogTitle className='search-input'>
-          <SearchIcon />
-          <Input type='search' placeholder='Tìm kiếm...' />
-        </DialogTitle>
-        <DialogDescription className='search-result'>
-          <span className='dark:!text-neutral_04'>Kết quả...</span>
-          {uniqueArray( 10 ).map( item => (
-            <Link key={item} className='dark:hover:!bg-neutral_04' href='ketqua'>
-              Kết quả 1
-            </Link>
-          ) )}
-        </DialogDescription>
-      </DialogContent>
-    </Dialog>
-  );
+
   return (
     <header
       className={cn(

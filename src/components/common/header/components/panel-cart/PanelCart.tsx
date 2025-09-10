@@ -6,13 +6,15 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@com
 import { formatVnd, uniqueArray } from "@lib/utils"
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from 'react'
 import styles from './PanelCard.module.scss'
 
-type PanelCartProps = {}
 
-export const PanelCart: React.FC<PanelCartProps> = ( props ) => {
+export const PanelCart: React.FC = () => {
+  const [isOpenPanel, setIsOpenPanel] = useState( false );
+
   return (
-    <Sheet>
+    <Sheet open={isOpenPanel} onOpenChange={setIsOpenPanel}>
       <SheetTrigger className='text-neutral_07 flex gap-x-1 cursor-pointer'>
         <Image src={cartIcon} alt="cart icon" />
         <span className='index_ellipse iu-d-flexcenter dark:!bg-neutral_00 dark:!text-neutral_07'>
@@ -23,7 +25,7 @@ export const PanelCart: React.FC<PanelCartProps> = ( props ) => {
         <SheetHeader className={styles.panel_cart_container}>
           <SheetTitle className={styles.panel_cart_title}>
             Giỏ hàng
-            <Image className='cursor-pointer' src={closeIcon} alt="close icon" />
+            <Image onClick={() => setIsOpenPanel( false )} className='cursor-pointer' src={closeIcon} alt="close icon" />
           </SheetTitle>
           <section className={styles.panel_cart_content}>
             <section className={styles.cart_content_list}>

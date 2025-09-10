@@ -10,6 +10,10 @@ import ShoppingBag from '@icons/shopping-bag';
 import { Square } from '@icons/square';
 import { TwoColumn } from '@icons/two-column';
 import { TwoRow } from '@icons/two-row';
+import banner_carousel_1 from '@images/banner_carousel_1.jpg';
+import banner_carousel_2 from '@images/banner_carousel_2.jpg';
+import banner_carousel_3 from '@images/banner_carousel_3.jpg';
+import banner_carousel_4 from '@images/banner_carousel_4.jpg';
 import facebookIcon from '@svgs/facebook.svg';
 import instagramIcon from '@svgs/instagram.svg';
 import UserIcon from '@svgs/userIcon.svg';
@@ -56,22 +60,38 @@ export const listSocialIcon = [
     icon: youtubeIcon
   }
 ];
-export const listSlider = [
+export const listDataCarousel = [
   {
     id: 0,
-    img: 'https://ucarecdn.com/fb7e4de7-3533-42f8-b153-fc95a73a15ef/Pasteimage.png'
+    img: banner_carousel_1,
+    title: 'Thiết bị Camera Chuyên Nghiệp',
+    subtitle: 'Khám phá bộ sưu tập camera và ống kính cao cấp',
+    buttonText: 'Khám phá ngay',
+    buttonLink: '/shop/cameras'
   },
   {
     id: 1,
-    img: 'https://ucarecdn.com/725f3667-bf23-446c-a51b-29b3f53bc700/PasteImage2.png'
+    img: banner_carousel_2,
+    title: 'Hệ thống Ánh Sáng Studio',
+    subtitle: 'Tạo ra những bức ảnh hoàn hảo với đèn studio chuyên nghiệp',
+    buttonText: 'Xem sản phẩm',
+    buttonLink: '/shop/lighting'
   },
   {
     id: 2,
-    img: 'https://ucarecdn.com/9c71eb65-0dc3-46a3-ba67-1ab8e2533e08/292184212_586036499545848_5535349302586193547_n.jpg'
+    img: banner_carousel_3,
+    title: 'Phụ kiện Nhiếp ảnh',
+    subtitle: 'Hoàn thiện bộ kit của bạn với các phụ kiện chất lượng cao',
+    buttonText: 'Mua ngay',
+    buttonLink: '/shop/accessories'
   },
   {
     id: 3,
-    img: 'https://ucarecdn.com/f0e41f40-7fe9-4e97-9cc5-7b4f333cb7e6/image_2023_03_28T14_00_17_383Z.png'
+    img: banner_carousel_4,
+    title: 'Ưu đãi Đặc biệt',
+    subtitle: 'Giảm giá lên đến 30% cho tất cả sản phẩm camera và ánh sáng',
+    buttonText: 'Nhận ưu đãi',
+    buttonLink: '/shop/deals'
   }
 ];
 export const listMainProduct = [

@@ -50,6 +50,7 @@ const mockCollections = [
 ];
 
 export const PanelSearch: React.FC = () => {
+  const [isOpenPanel, setIsOpenPanel] = useState( false );
   const [searchQuery, setSearchQuery] = useState( '' );
   const [searchResults, setSearchResults] = useState<typeof mockProducts>( [] );
   const [isSearching, setIsSearching] = useState( false );
@@ -165,7 +166,7 @@ export const PanelSearch: React.FC = () => {
   );
 
   return (
-    <Sheet>
+    <Sheet open={isOpenPanel} onOpenChange={setIsOpenPanel}>
       <SheetTrigger className='text-neutral_07 flex gap-x-1 cursor-pointer'>
         <Image src={searchIcon} alt='search' />
       </SheetTrigger>
@@ -173,7 +174,7 @@ export const PanelSearch: React.FC = () => {
         <SheetHeader className={styles.panel_search_container}>
           <SheetTitle className={styles.panel_search_title}>
             Tìm kiếm
-            <Image className='cursor-pointer' src={closeIcon} alt="close icon" />
+            <Image onClick={() => setIsOpenPanel( false )} className='cursor-pointer' src={closeIcon} alt="close icon" />
           </SheetTitle>
 
           <section className={styles.panel_search_content}>

@@ -22,6 +22,7 @@
       "@common/*": ["./src/components/common/*"],
       "@icons/*": ["./src/components/icons/*"],
       "@svgs/*": ["./src/assets/svgs/*"],
+      "@images/*": ["./src/assets/images/*"],
       "@*": ["./src/*"],
     }
   },

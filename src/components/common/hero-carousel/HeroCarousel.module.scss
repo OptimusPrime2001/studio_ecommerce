@@ -1,0 +1,134 @@
+.hero_carousel_wrapper {
+  width: 100%;
+  height: 33.5rem;
+
+  @include media-breakpoint-down(md) {
+    height: 19.0625rem;
+  }
+
+  .carousel_button {
+    background: $neutral_01;
+    height: 2.5rem;
+    width: 2.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.0364);
+    border: none;
+    color: $neutral_05;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  .slider_navigation {
+    position: absolute;
+    bottom: $s32;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: $s8;
+
+    @include media-breakpoint-down(md) {
+      bottom: $s8;
+    }
+
+    .slider_dot {
+      height: $s8;
+      width: $s8;
+      background: $neutral_01;
+      border-radius: 100%;
+      display: inline-block;
+      transition: all ease 0.4s;
+      cursor: pointer;
+    }
+
+    .slider_dot_active {
+      width: $s32;
+      border-radius: 6.25rem;
+    }
+  }
+
+  .slide_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5%;
+
+    .slide_content {
+      max-width: 600px;
+      color: white;
+      margin-left: 5rem;
+
+      .slide_title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out 0.2s;
+
+        &.slide_title_active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .slide_subtitle {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(1.875rem);
+        transition-delay: 2.8s;
+        transition: all 0.5s ease-out 0.4s;
+
+        &.slide_subtitle_active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+
+      }
+
+      .slide_button {
+        color: white;
+        font-weight: $medium;
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+        font-size: 1.1rem;
+        transform: translateY(30px);
+        transition: all 0.5s ease-out 0.4s;
+        opacity: 0;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.slide_button_active {
+          opacity: 1;
+          transform: translateY(0);
+
+        }
+
+      }
+    }
+  }
+
+
+}
