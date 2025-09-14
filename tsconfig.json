@@ -23,6 +23,9 @@
       "@icons/*": ["./src/components/icons/*"],
       "@svgs/*": ["./src/assets/svgs/*"],
       "@images/*": ["./src/assets/images/*"],
+      "@sharedTypes/*": ["./src/sharedTypes/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@components/*": ["./src/components/*"],
       "@*": ["./src/*"],
     }
   },

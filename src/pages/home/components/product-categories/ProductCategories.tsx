@@ -1,11 +1,11 @@
 'use client';
 import { Button } from '@components/ui/button';
+import { categoryData } from '@lib/constant';
 import { cn } from '@lib/utils';
 import { ChevronLeft, ChevronRight, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { categoryData } from '.';
 import styles from './ProductCategories.module.scss';
 
 

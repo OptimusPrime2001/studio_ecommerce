@@ -14,6 +14,8 @@ import banner_carousel_1 from '@images/banner_carousel_1.jpg';
 import banner_carousel_2 from '@images/banner_carousel_2.jpg';
 import banner_carousel_3 from '@images/banner_carousel_3.jpg';
 import banner_carousel_4 from '@images/banner_carousel_4.jpg';
+import type { CategoryItem } from '@sharedTypes/CategoryType';
+import type { Product } from '@sharedTypes/ProductType';
 import facebookIcon from '@svgs/facebook.svg';
 import instagramIcon from '@svgs/instagram.svg';
 import UserIcon from '@svgs/userIcon.svg';
@@ -302,5 +304,116 @@ export const listContactUs = [
     title: 'Email',
     Icon: EmailIcon,
     content: 'hello@3legant.com'
+  }
+];
+
+
+export const FEATURED_PRODUCTS: Product[] = [
+  {
+    id: 1,
+    name: 'Bàn phím Gen 3',
+    price: 899000,
+    image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3axbhgqj3r071.webp',
+    category: 'KEYBOARDS',
+    colors: ['#000000']
+  },
+  {
+    id: 2,
+    name: 'VisionX Stealth',
+    price: 2300000,
+    image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3axbhgqj3r071.webp',
+    category: 'HYPERWORK',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000']
+  },
+  {
+    id: 3,
+    name: 'T6 Pro Dual - 2025',
+    price: 1250000,
+    image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3axbhgqj3r071.webp',
+    category: 'HUMAN MOTION',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000']
+  },
+  {
+    id: 4,
+    name: 'T6 Pro - 2025',
+    price: 890000,
+    image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3axbhgqj3r071.webp',
+    category: 'HUMAN MOTION',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000']
+  },
+  {
+    id: 5,
+    name: 'MacBook Pro M3',
+    price: 19900000,
+    image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3axbhgqj3r071.webp',
+    category: 'LAPTOPS',
+    colors: ['#C0C0C0', '#000000']
+  },
+  {
+    id: 6,
+    name: 'Gaming Chair Pro',
+    price: 3500000,
+    originalPrice: 4200000,
+    image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m3axbhgqj3r071.webp',
+    category: 'CHAIRS',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000', '#FF0000']
+  }
+];
+export const categoryData: CategoryItem[] = [
+  {
+    id: 1,
+    name: 'AllProducts',
+    subName: 'Xem tất cả sản phẩm của chúng tôi',
+    count: 100,
+    image: 'https://hyperwork.vn/cdn/shop/files/ssdsd_11zon_1.jpg?v=1753694261&width=1080',
+    href: '/shop/all'
+  },
+  {
+    id: 2,
+    name: 'Softbox',
+    subName: 'Phụ kiện',
+    count: 24,
+    image: 'https://hyperwork.vn/cdn/shop/files/Capture_Ones_sCastalog0065_11zon.jpg?v=1753695610&width=1080',
+    href: '/shop/softbox'
+  },
+  {
+    id: 3,
+    name: 'Accessories',
+    subName: 'Phụ kiện',
+    count: 10,
+    image: 'https://hyperwork.vn/cdn/shop/files/atlas-white-2_11zon_467cc667-15a1-4781-bc1d-deac52740bac.jpg?v=1753694797&width=1080',
+    href: '/shop/accessories'
+  },
+  {
+    id: 4,
+    name: 'MobilePhotography',
+    subName: 'Phụ kiện',
+    count: 23,
+    image: 'https://hyperwork.vn/cdn/shop/files/Capture_One_Catalog05971_11zon.svg?v=1741830770&width=1080',
+    href: '/shop/mobile-photography'
+  },
+  {
+    id: 5,
+    name: 'Stands',
+    subName: 'Phụ kiện',
+    count: 34,
+    image: 'https://hyperwork.vn/cdn/shop/files/Setup1-PG02-1_11zon.jpg?v=1739178887&width=1080',
+    href: '/shop/stands'
+  },
+  {
+    id: 6,
+    name: 'PhoneHolders',
+    subName: 'Phụ kiện',
+    count: 14,
+    image: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=300&fit=crop',
+    href: '/shop/phone-holders'
   }
 ];

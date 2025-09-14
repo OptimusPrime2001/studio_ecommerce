@@ -1,0 +1,10 @@
+.home_wrapper {
+  min-height: 100vh;
+  margin-bottom: 2rem;
+
+  .home_main_content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
