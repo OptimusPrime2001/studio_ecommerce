@@ -14,16 +14,16 @@ import banner_carousel_1 from '@images/banner_carousel_1.jpg';
 import banner_carousel_2 from '@images/banner_carousel_2.jpg';
 import banner_carousel_3 from '@images/banner_carousel_3.jpg';
 import banner_carousel_4 from '@images/banner_carousel_4.jpg';
-import type { CategoryItem } from '@sharedTypes/CategoryType';
-import type { Product } from '@sharedTypes/ProductType';
+import type { CategoryItem } from '@shared-types/CategoryType';
+import type { Product } from '@shared-types/ProductType';
 import facebookIcon from '@svgs/facebook.svg';
 import instagramIcon from '@svgs/instagram.svg';
 import UserIcon from '@svgs/userIcon.svg';
 import youtubeIcon from '@svgs/youtube.svg';
 
-export const navigationLink = [
+export const MENU_NAVIGATION = [
   { id: 'home', label: 'Trang chủ', href: '/' },
-  { id: 'shop', label: 'Cửa hàng', href: '/shop' },
+  { id: 'shop', label: 'Cửa hàng', href: '/collection' },
   { id: 'product', label: 'Sản phẩm', href: '/product' },
   { id: 'contact-us', label: 'Liên hệ', href: '/contact-us' }
 ];
@@ -45,7 +45,7 @@ export const navigationIcon = [
     Component: ShoppingBag
   }
 ];
-export const listSocialIcon = [
+export const ICONS_SOCIAL = [
   {
     id: 'instagram',
     href: '/instagram',
@@ -62,7 +62,7 @@ export const listSocialIcon = [
     icon: youtubeIcon
   }
 ];
-export const listDataCarousel = [
+export const LIST_DATA_CAROUSEL = [
   {
     id: 0,
     img: banner_carousel_1,
@@ -258,10 +258,10 @@ export const filterPriceRange: PriceOptionType[] = [
   }
 ];
 export enum SelectDisplayType {
-  'GridSquare' = 'grid-square',
+  'GridSquare' = 'grid_square',
   'Square' = 'square',
-  'TwoColumn' = 'two-columns',
-  'TwoRow' = 'two-rows'
+  'TwoColumn' = 'two_columns',
+  'TwoRow' = 'two_rows'
 }
 export const listSelectDisplay = [
   {

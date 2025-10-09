@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@components/ui/button';
-import { categoryData } from '@lib/constant';
+import { categoryData } from '@lib/constants';
 import { cn } from '@lib/utils';
 import { ChevronLeft, ChevronRight, MoveRight } from 'lucide-react';
 import Image from 'next/image';

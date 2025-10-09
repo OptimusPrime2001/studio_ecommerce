@@ -1,6 +1,6 @@
 import { Footer } from '@common/footer';
 import { Header } from '@common/header';
-import { NotificationBar } from '@common/notification-bar';
+import { NotificationBar } from '@components/common';
 
 const MainLyout = ( {
   children

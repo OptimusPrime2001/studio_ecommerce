@@ -2,7 +2,12 @@
   width: $w100;
   padding-left: 10%;
   padding-right: 10%;
-  height: 3.75rem;
+  height: 6rem;
+  @include flex-between();
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: white;
 
   .header-logo>button {
     @include media-breakpoint-up(ipadair) {
@@ -54,11 +59,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 0.375rem;
+      border-radius: $br6;
       border: 1px solid $neutral_04;
       width: $w100;
       overflow: hidden;
-      padding: 0.625rem $s16;
+      padding: $s10 $s16;
       box-sizing: border-box;
       margin-bottom: $s16;
 
@@ -75,7 +80,7 @@
 
       li {
         font-size: $f14;
-        line-height: 1.5rem;
+        line-height: $lh24;
         padding: $s16 0;
         font-weight: $medium;
         width: $w100;
@@ -85,11 +90,11 @@
     }
 
     .sign-btn {
-      font-size: 1.125rem;
-      line-height: $s32;
+      font-size: $f18;
+      line-height: $lh32;
       font-weight: $medium;
-      padding: 0.625rem 0;
-      height: 3.25rem;
+      padding: $s10 0;
+      height: 5.2rem;
     }
 
     .list_social {
@@ -134,7 +139,7 @@
     padding: $s12 0;
     padding-left: $s12;
     row-gap: $s4;
-    max-height: 18.75rem;
+    max-height: 30rem;
     overflow-y: auto;
 
     span {
@@ -146,7 +151,7 @@
     a {
       font-size: $f14;
       padding: $s8;
-      border-radius: 2px;
+      border-radius: $br4;
 
       &:hover {
         background-color: $neutral_03;

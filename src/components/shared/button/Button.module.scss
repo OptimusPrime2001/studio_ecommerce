@@ -1,0 +1,28 @@
+.common_button {
+  width: 20rem;
+  height: 4rem;
+  padding-top: $s8;
+  padding-right: $s12;
+  padding-bottom: $s8;
+  padding-left: $s12;
+  gap: $s8;
+  box-shadow: 0px -2px 2px 0px #3030301A inset;
+  box-shadow: 0px 12px 12px 0px #FFFFFF1F inset;
+  font-weight: $medium;
+  font-size: 1.5rem;
+  line-height: 140%;
+  letter-spacing: -2%;
+  border-radius: $s8;
+  cursor: pointer;
+}
+
+.button_primary {
+  background: $primary;
+  color: $neutral_01;
+}
+
+.button_secondary {
+  background: $neutral_01;
+  border: 1px solid #DCE0E5;
+  color: $neutral_08;
+}

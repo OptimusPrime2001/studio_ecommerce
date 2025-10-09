@@ -1,6 +1,6 @@
 'use client';
-import Logo from '@common/logo/logo';
-import { categoryData, listSocialIcon, navigationLink } from '@lib/constant';
+import { Logo } from '@components/common';
+import { categoryData, ICONS_SOCIAL, MENU_NAVIGATION } from '@lib/constants';
 import { cn } from '@lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ export const Footer = () => {
           <span className={styles.tagline}>Chụp chiếu ảnh</span>
         </div>
         <nav className={styles.navigation}>
-          {navigationLink.map( item => (
+          {MENU_NAVIGATION.map( item => (
             <Link href={item.href} key={item.id} className={cn( styles.nav_link, 'menu_hover_underline' )}>
               {item.label}
             </Link>
@@ -60,7 +60,7 @@ export const Footer = () => {
       <div className={styles.footer_end}>
         <span className={styles.copy_right}>Copyright © 2023 3legant. All rights reserved</span>
         <div className={styles.list_social}>
-          {listSocialIcon.map( item => (
+          {ICONS_SOCIAL.map( item => (
             <Link href={item.href} key={item.id} className={styles.social_link}>
               <Image src={item.icon} alt='icon social' />
             </Link>

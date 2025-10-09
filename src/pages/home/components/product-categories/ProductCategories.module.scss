@@ -1,38 +1,34 @@
 .categories_section {
-  padding: 2rem 0;
+  padding: $s32 0;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 
   .categories_header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: $s32;
 
     .categories_title {
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-size: 3rem;
+      font-weight: $semibold;
       color: #1e293b;
-      margin-bottom: 1rem;
+      margin-bottom: $s16;
 
       @media (max-width: 768px) {
-        font-size: 2rem;
+        font-size: 3.2rem;
       }
     }
 
     .categories_subtitle {
-      font-size: 1.125rem;
+      font-size: $f18;
       color: #64748b;
-      max-width: 600px;
+      max-width: 60rem;
       margin: 0 auto;
 
-      @media (max-width: 768px) {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
     }
   }
 
   .categories_container {
     position: relative;
-    padding: 0 3rem;
+    padding: 0 $s48;
 
     &:hover {
       .scroll_button {
@@ -48,9 +44,9 @@
       z-index: 1;
       background: white;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 3rem;
-      height: 3rem;
+      box-shadow: 0 $s4 $s12 rgba(0, 0, 0, 0.1);
+      width: $s48;
+      height: $s48;
       border-radius: 50%;
       transition: all 0.3s ease;
 
@@ -59,11 +55,11 @@
       }
 
       &.scroll_button_left {
-        left: 20px;
+        left: $s20;
       }
 
       &.scroll_button_right {
-        right: 20px;
+        right: $s20;
       }
 
     }
@@ -83,7 +79,7 @@
 
       .categories_grid {
         display: grid;
-        gap: 1.25rem;
+        gap: $s20;
         grid: auto / auto-flow calc(calc(min(calc(100vw - 15px - 3rem * 2), max(1560px, 1280px)) / 4) - clamp(1rem, 1.263vw, 1.5rem) * calc(4 - 1) / 4);
         min-width: fit-content;
         overflow-x: auto;
@@ -111,8 +107,8 @@
             .category_info {
               position: absolute;
               padding-block-start: 0;
-              padding-block-end: 1.25rem;
-              padding-inline: 1.5rem;
+              padding-block-end: $s20;
+              padding-inline: $s15;
               color: $neutral_00;
             }
 
@@ -122,7 +118,7 @@
           }
 
           .category_image_wrapper {
-            border-radius: .5rem;
+            border-radius: $s8;
             overflow: hidden;
             width: 100%;
 
@@ -140,15 +136,15 @@
           .category_info {
             inset-block-end: 0;
             inset-inline-start: 0;
-            padding-bottom: 1.5625rem;
+            padding-bottom: $s15;
             padding-left: 0;
             padding-right: 0;
-            padding-top: 1rem;
+            padding-top: $s10;
             @include flex-between();
             width: 100%;
 
             .category_name {
-              font-size: 1.4rem;
+              font-size: $f16;
               font-weight: $medium;
               line-height: 1.3;
               position: relative;
@@ -156,22 +152,22 @@
 
               .category_count {
                 position: absolute;
-                inset-block-start: calc(0.125rem * -1);
+                inset-block-start: calc(2px * -1);
                 inset-inline-start: calc(100% + 0.3em);
-                font-size: 0.7rem;
+                font-size: $f12;
                 font-weight: $medium;
               }
             }
 
             .category_subname {
-              font-size: 0.8rem;
-              font-weight: 400;
+              font-size: $f12;
+              font-weight: $medium;
             }
           }
 
           .category_arrow {
-            width: 20px;
-            height: 20px;
+            width: $s20;
+            height: $s20;
             transition: transform 0.3s ease;
           }
         }

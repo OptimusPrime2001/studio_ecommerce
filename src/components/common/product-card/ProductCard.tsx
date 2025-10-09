@@ -1,7 +1,7 @@
 'use client';
 import { Button } from '@components/ui/button';
 import { cn } from '@lib/utils';
-import type { Product } from '@sharedTypes/ProductType';
+import type { Product } from '@shared-types/ProductType';
 import { Eye } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -18,7 +18,7 @@ export const ProductCard: React.FC<ProductCardProps> = ( { product, className } 
   const router = useRouter();
 
   const handleViewProduct = () => {
-    router.push( `/product/${product.id}` );
+    router.push( `/products/${product.id}` );
   };
 
   const handleAddToCart = () => {

@@ -2,9 +2,9 @@
 import { poppins } from '@lib/fonts';
 import { cn } from '@lib/utils';
 import Link from 'next/link';
-import styles from './logo.module.scss';
+import styles from './Logo.module.scss';
 
-const Logo = ( { className = '' } ) => {
+export const Logo = ( { className = '' } ) => {
   return (
     <Link className={cn( 'iu-d-flexcenter', poppins.className, styles.logo, className )} href='/'>
       Lightning Studio
@@ -12,4 +12,3 @@ const Logo = ( { className = '' } ) => {
   );
 };
 
-export default Logo;

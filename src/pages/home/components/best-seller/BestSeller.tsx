@@ -2,7 +2,7 @@
 import { ProductCard } from '@components/common/product-card';
 import { Button } from '@components/ui/button';
 import { useHorizontalScroll } from '@hooks/useHorizontalScroll';
-import { FEATURED_PRODUCTS } from '@lib/constant';
+import { FEATURED_PRODUCTS } from '@lib/constants';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import styles from './BestSeller.module.scss';
 
@@ -15,7 +15,7 @@ export const BestSeller: React.FC = () => {
     canScrollRight,
     scrollLeft,
     scrollRight
-  } = useHorizontalScroll( { cardWidth: 338, scrollAmount: 2 } );
+  } = useHorizontalScroll( { cardWidth: 300, scrollAmount: 2 } );
 
   return (
     <section className={styles.featured_products}>

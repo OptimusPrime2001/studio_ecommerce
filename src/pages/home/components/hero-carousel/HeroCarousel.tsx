@@ -1,4 +1,5 @@
 'use client';
+import { CommonButton } from '@components/shared';
 import { Button } from '@components/ui/button';
 import {
   Carousel,
@@ -8,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@components/ui/carousel';
-import { listDataCarousel } from '@lib/constant';
+import { LIST_DATA_CAROUSEL } from '@lib/constants';
 import { cn } from '@lib/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -38,7 +39,7 @@ export const HeroCarousel: React.FC = () => {
     <section className={cn( styles.hero_carousel_wrapper, 'media_width_sm' )}>
       <Carousel setApi={setApi} className='h-full w-full'>
         <CarouselContent className='m-0 h-full w-full'>
-          {listDataCarousel.map( ( { id, img, title, subtitle, buttonText, buttonLink } ) => (
+          {LIST_DATA_CAROUSEL.map( ( { id, img, title, subtitle, buttonText, buttonLink } ) => (
             <CarouselItem className='relative p-0' key={id}>
               <Image priority className='object-cover' fill src={img} alt={title} />
               <div className={styles.slide_overlay}>
@@ -49,13 +50,11 @@ export const HeroCarousel: React.FC = () => {
                   <p className={cn( styles.slide_subtitle, current === id ? styles.slide_subtitle_active : '' )}>
                     {subtitle}
                   </p>
-                  <Button
-                    className={cn( styles.slide_button, current === id ? styles.slide_button_active : '' )}
-                    size="lg"
+                  <CommonButton
                     onClick={() => router.push( buttonLink )}
                   >
                     {buttonText}
-                  </Button>
+                  </CommonButton>
                 </div>
               </div>
             </CarouselItem>
@@ -64,7 +63,7 @@ export const HeroCarousel: React.FC = () => {
         <CarouselPrevious className={cn( 'left-8', styles.carousel_button )} />
         <CarouselNext className={cn( 'right-8', styles.carousel_button )} />
         <section className={cn( 'iu-d-flexcenter', styles.slider_navigation )}>
-          {listDataCarousel.map( item => (
+          {LIST_DATA_CAROUSEL.map( item => (
             <Button
               reset
               variant='outline'

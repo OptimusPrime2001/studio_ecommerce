@@ -23,7 +23,7 @@
       "@icons/*": ["./src/components/icons/*"],
       "@svgs/*": ["./src/assets/svgs/*"],
       "@images/*": ["./src/assets/images/*"],
-      "@sharedTypes/*": ["./src/sharedTypes/*"],
+      "@shared-types/*": ["./src/shared-types/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@components/*": ["./src/components/*"],
       "@*": ["./src/*"],

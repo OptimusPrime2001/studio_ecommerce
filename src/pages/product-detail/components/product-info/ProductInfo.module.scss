@@ -1,0 +1,152 @@
+.product_info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.product_name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.brand_section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .brand_label {
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .brand_name {
+    color: #3b82f6;
+    font-weight: 600;
+  }
+}
+
+.rating_section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  .stars {
+    display: flex;
+    gap: 0.125rem;
+  }
+
+  .rating_text {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+}
+
+.star_full {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #fbbf24;
+  fill: currentColor;
+}
+
+.star_empty {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #d1d5db;
+}
+
+.star_half {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+
+  .star_fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+  }
+}
+
+.price_section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .current_price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dc2626;
+  }
+
+  .price_details {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .original_price {
+      font-size: 1.125rem;
+      color: #6b7280;
+      text-decoration: line-through;
+    }
+
+    .discount {
+      background-color: #dc2626;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+  }
+}
+
+.stock_section {
+  padding: 0.75rem 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+
+  .stock_status {
+    font-weight: 600;
+
+    &.in_stock {
+      color: #059669;
+    }
+
+    &.out_stock {
+      color: #dc2626;
+    }
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+
+    .feature_icon {
+      font-size: 1.25rem;
+    }
+
+    .feature_text {
+      font-size: 0.875rem;
+      color: #374151;
+      font-weight: 500;
+    }
+  }
+}

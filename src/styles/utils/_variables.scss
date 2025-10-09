@@ -1,7 +1,7 @@
 // Font Family
 
 //font size variables
-$size1: 0.0625rem !default;
+$size1: 0.1rem !default;
 $font-base: $size1 * 16; // Assumes the browser default, typically `16px`
 $f12: $font-base * 0.75 !default;
 $f13: $font-base * 0.8125 !default;
@@ -29,30 +29,36 @@ $lh135: 1.35 !default;
 $lh14: 1.4 !default;
 $lh15: 1.5 !default;
 $lh2: 2 !default;
+$lh24: 2.4rem !default;
+$lh32: 3.2rem !default;
 
-//padding margin variables
-$s4: 0.25rem;
-$s8: 0.5rem;
-$s10: 0.625rem;
-$s12: 0.75rem;
-$s14: 0.875rem;
-$s15: 0.9375rem;
-$s16: 1rem;
-$s18: 1.125rem;
-$s20: 1.25rem;
-$s22: 1.375rem;
-$s24: 1.5rem;
-$s28: 1.75rem;
-$s32: 2rem;
-$s40: 2.5rem;
-$s48: 3rem;
-$s64: 4rem;
 
-// border-radius-variables
-$br: 0.5rem !default;
-$br4: 0.25rem !default;
-$br8: 0.5rem !default;
-$br20: 1.25rem !default;
+
+// padding margin variables (1rem = 10px)
+$s4: 0.4rem;
+$s6: 0.6rem;
+$s8: 0.8rem;
+$s10: 1rem;
+$s12: 1.2rem;
+$s14: 1.4rem;
+$s15: 1.5rem;
+$s16: 1.6rem;
+$s18: 1.8rem;
+$s20: 2rem;
+$s22: 2.2rem;
+$s24: 2.4rem;
+$s28: 2.8rem;
+$s32: 3.2rem;
+$s40: 4rem;
+$s48: 4.8rem;
+$s64: 6.4rem;
+
+// border-radius-variables (1rem = 10px)
+$br: 0.8rem !default; // 8px
+$br4: 0.4rem !default; // 4px
+$br6: 0.6rem !default; // 6px
+$br8: 0.8rem !default; // 8px
+$br20: 2rem !default; // 20px
 
 // resonsive breakpoints
 $grid-breakpoints: (
@@ -65,8 +71,7 @@ $grid-breakpoints: (
   2xl: 1440px,
   3xl: 1536px) !default;
 
-$primary: #000000;
-$secondary_color: #377dff;
+$primary: #3348FF;
 $secondary_green: #38cb89;
 $secondary_orange: #ffab00;
 $secondary_red: #ff5630;
