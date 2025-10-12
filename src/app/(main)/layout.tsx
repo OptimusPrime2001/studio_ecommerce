@@ -1,9 +1,7 @@
-import { Footer } from '@common/footer';
-import { Header } from '@common/header';
-import { NotificationBar } from '@components/common';
+import { Footer, Header, NotificationBar } from "@components";
 
 const MainLyout = ( {
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }> ) => {

@@ -1,62 +1,16 @@
-'use client';
-import { ProductCard } from '@components/common/product-card';
-import { Button } from '@components/ui/button';
-import { useHorizontalScroll } from '@hooks/useHorizontalScroll';
-import { FEATURED_PRODUCTS } from '@lib/constants';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import styles from './BestSeller.module.scss';
-
-
+"use client";
+import { CarouselProduct, CommonButton } from "@components";
+import { ArrowRight } from "lucide-react";
+import styles from "./BestSeller.module.scss";
 
 export const BestSeller: React.FC = () => {
-  const {
-    scrollContainerRef,
-    canScrollLeft,
-    canScrollRight,
-    scrollLeft,
-    scrollRight
-  } = useHorizontalScroll( { cardWidth: 300, scrollAmount: 2 } );
-
   return (
-    <section className={styles.featured_products}>
+    <section className={styles.best_seller_wrapper}>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>Sản phẩm bán chạy</h2>
-          <div className={styles.navigation}>
-            <Button
-              variant="outline"
-              size="icon"
-              className={styles.nav_button}
-              onClick={scrollLeft}
-              disabled={!canScrollLeft}
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className={styles.nav_button}
-              onClick={scrollRight}
-              disabled={!canScrollRight}
-            >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
-          </div>
-        </div>
-        <div
-          ref={scrollContainerRef}
-          className={styles.products_container}
-        >
-          {FEATURED_PRODUCTS.map( ( product ) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              className={styles.product_card}
-            />
-          ) )}
-        </div>
-        <Button
-          className='button_default'>Xem thêm <ArrowRight /></Button>
+        <CarouselProduct title="Sản phẩm bán chạy" />
+        <CommonButton className={styles.view_more}>
+          Xem thêm <ArrowRight />
+        </CommonButton>
       </div>
     </section>
   );

@@ -4,75 +4,11 @@
   .container {
     margin: 0 5%;
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.5rem;
-
-      .title {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #000;
-        margin: 0;
-      }
-
-      .navigation {
-        display: flex;
-        gap: 0.5rem;
-
-        .nav_button {
-          width: 3rem;
-          height: 3rem;
-          border: 0.0625rem solid #e0e0e0;
-          background: white;
-          color: #666;
-          border-radius: 50%;
-          transition: all 0.2s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-
-          &:hover:not(:disabled) {
-            background: #f5f5f5;
-            border-color: #ccc;
-            color: #000;
-          }
-
-          &:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-          }
-        }
-      }
-    }
-
-    .products_container {
-      display: flex;
-      gap: 1.25rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding-bottom: 0.625rem;
-
-      // Hide scrollbar
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      .product_card {
-        flex: 0 0 auto;
-        min-width: 19.875rem;
-      }
-    }
-
     .view_more {
-      border-radius: 2rem;
-      padding: 1.3rem 2rem;
+      border-radius: $s32;
+      padding: $s16 $s32;
       cursor: pointer;
+      margin-top: $s20;
     }
   }
 }

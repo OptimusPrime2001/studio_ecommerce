@@ -1,20 +1,25 @@
-'use client';
-import { Button } from '@components/ui/button';
-import { cn } from '@lib/utils';
-import type { Product } from '@shared-types/ProductType';
-import { Eye } from 'lucide-react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import styles from './ProductCard.module.scss';
-
-
+"use client";
+import { ButtonDiv, CommonButton } from "@components/shared";
+import { Button } from "@components/ui/button";
+import { cn, formatVnd } from "@lib/utils";
+import type { Product } from "@shared-types/ProductType";
+import { Heart, ShoppingCart } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import cartAddTo from "@/assets/svgs/cartAdd.svg";
+import styles from "./ProductCard.module.scss";
 
 interface ProductCardProps {
   product: Product;
   className?: string;
+  orderCount?: number;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ( { product, className } ) => {
+export const ProductCard: React.FC<ProductCardProps> = ( {
+  product,
+  className,
+  orderCount = 132,
+} ) => {
   const router = useRouter();
 
   const handleViewProduct = () => {
@@ -23,60 +28,45 @@ export const ProductCard: React.FC<ProductCardProps> = ( { product, className } 
 
   const handleAddToCart = () => {
     // Add to cart logic here
-    console.log( 'Added to cart:', product.name );
-  };
-
-  const formatPrice = ( price: number ) => {
-    return new Intl.NumberFormat( 'vi-VN' ).format( price ) + ' VND';
+    console.log( "Added to cart:", product.name );
   };
 
   return (
-    <div className={cn( styles.product_card, className )}>
-      <div className={styles.product_image_wrapper}>
+    <div className={cn( styles.product_card_wrapper, className )}>
+      <ButtonDiv className={styles.product_img} onClick={handleViewProduct}>
         <Image
           src={product.image}
           alt={product.name}
           fill
-          className={styles.product_image}
+          className={styles.image}
         />
-
-        {product.isOnSale && product.saleLabel && (
-          <div className={styles.sale_badge}>
-            {product.saleLabel}
-          </div>
-        )}
-
-        <div className={styles.product_overlay}>
-          <Button
-            size="sm"
-            className={cn( styles.add_to_cart_btn, 'button_default' )}
-            onClick={handleAddToCart}
-          >
-            Thêm vào giỏ hàng
-          </Button>
-        </div>
-
-        <Button
-          size="icon"
-          variant="outline"
-          className={styles.view_product}
-          onClick={handleViewProduct}
-        >
-          <Eye className="w-4 h-4" />
+        <Button className={styles.wishlist_btn} aria-label="Yêu thích">
+          <Heart className={styles.icon_heart} />
         </Button>
-      </div>
+      </ButtonDiv>
 
-      <div className={styles.product_info}>
-        <p className={styles.product_category}>{product.category}</p>
-        <h3 className={styles.product_name}>{product.name}</h3>
-
-        <div className={styles.product_pricing}>
-          <span className={styles.product_price}>{formatPrice( product.price )}</span>
-          {product.originalPrice && (
-            <span className={styles.original_price}>{formatPrice( product.originalPrice )}</span>
-          )}
+      <div className={styles.product_content}>
+        <h3 className={styles.product_title}>{product.name}</h3>
+        <span className={styles.order_count}>Đã bán : {orderCount}</span>
+        <div className={styles.product_price}>
+          <span className={styles.price_value}>{formatVnd( product.price )}</span>
         </div>
       </div>
+      <CommonButton
+        width="full"
+        variant="secondary"
+        className={styles.add_cart_btn}
+        onClick={handleAddToCart}
+      >
+        <Image
+          src={cartAddTo}
+          alt="Add to cart"
+          width={22}
+          height={22}
+          className={styles.icon_cart}
+        />
+        Thêm vào giỏ hàng
+      </CommonButton>
     </div>
   );
 };

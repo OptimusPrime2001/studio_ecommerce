@@ -19,13 +19,12 @@
       }
     ],
     "paths": {
-      "@common/*": ["./src/components/common/*"],
       "@icons/*": ["./src/components/icons/*"],
       "@svgs/*": ["./src/assets/svgs/*"],
       "@images/*": ["./src/assets/images/*"],
       "@shared-types/*": ["./src/shared-types/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@components/*": ["./src/components/*"],
+      "@components": ["./src/components/index.ts"],
       "@*": ["./src/*"],
     }
   },

@@ -1,0 +1,47 @@
+.carousel_header {
+  @include flex-between();
+  margin-bottom: $s32;
+
+  .title {
+    font-size: 3rem;
+    font-weight: $semibold;
+    color: #000;
+    margin: 0;
+  }
+
+  .navigation_wrapper {
+    display: flex;
+    gap: $s8;
+
+    .nav_button {
+      width: $s48;
+      height: $s48;
+      border: 1px solid #e0e0e0;
+      background: white;
+      color: #666;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      @include flex-center();
+      cursor: pointer;
+      position: static;
+      top: 0;
+      translate: 0;
+
+      svg {
+        width: $s20;
+        height: $s20;
+      }
+
+      &:hover:not(:disabled) {
+        background: #f5f5f5;
+        border-color: #ccc;
+        color: #000;
+      }
+
+      &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

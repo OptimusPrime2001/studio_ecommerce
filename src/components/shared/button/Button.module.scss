@@ -1,5 +1,5 @@
 .common_button {
-  width: 20rem;
+  min-width: 20rem;
   height: 4rem;
   padding-top: $s8;
   padding-right: $s12;
@@ -14,15 +14,27 @@
   letter-spacing: -2%;
   border-radius: $s8;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .button_primary {
   background: $primary;
   color: $neutral_01;
+
+  &:hover {
+    background: #5061fc;
+  }
 }
 
 .button_secondary {
-  background: $neutral_01;
-  border: 1px solid #DCE0E5;
+  background: #EDF0F2;
   color: $neutral_08;
+
+  &:hover {
+    background: rgba(0, 20, 60, .15);
+  }
+}
+
+.full_width {
+  width: 100%;
 }
