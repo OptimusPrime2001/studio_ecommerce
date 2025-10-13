@@ -1,11 +1,11 @@
 'use client';
-import { ProductCard } from '@common/product-card';
+import { ProductCard } from '@components';
 import { Button } from '@components/ui/button';
 import { Checkbox } from '@components/ui/checkbox';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@components/ui/select';
 import useResponsive, { EnumScreenSize } from '@hooks/useResponsive';
 import FilterIcon from '@icons/filter';
-import { filterCatogories, filterPriceRange, listSelectDisplay, type PriceOptionType } from '@lib/constants';
+import { filterCategories, filterPriceRange, listSelectDisplay, type PriceOptionType } from '@lib/constants';
 import { poppins } from '@lib/fonts';
 import { cn, uniqueArray } from '@lib/utils';
 import React, { useEffect } from 'react';
@@ -18,7 +18,7 @@ const Collection: React.FC<CollectionProps> = ( props ) => {
 
   const [selectDisplay, setSelectDisplay] = React.useState<number>( 0 );
   const [selectAll, setSelectAll] = React.useState<boolean>( false );
-  const [selectedCategory, setSelectedCategory] = React.useState<( typeof filterCatogories )[0]>( filterCatogories[0] );
+  const [selectedCategory, setSelectedCategory] = React.useState<( typeof filterCategories )[0]>( filterCategories[0] );
   const [priceOptions, setPriceOptions] = React.useState<PriceOptionType[]>( filterPriceRange );
 
   useEffect( () => {

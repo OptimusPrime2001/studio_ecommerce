@@ -1,0 +1,33 @@
+.select_trigger {
+  font-size: $f14;
+  border-radius: $s8;
+  padding: $s8 $s14;
+  height: fit-content;
+  min-width: 12rem;
+  justify-content: space-between;
+  cursor: pointer;
+
+  .select_icon {
+    margin-left: $s8;
+    height: 1.4rem;
+    width: 1.4rem;
+    opacity: 0.5;
+  }
+}
+
+.select_content {
+  border-radius: $s8;
+  padding: $s4;
+
+  .select_item {
+    padding: $s8 $s10;
+    font-size: $f14;
+    border-radius: $s8;
+  }
+
+  .select_check_icon {
+    margin-right: $s8;
+    height: 1.4rem;
+    width: 1.4rem;
+  }
+}

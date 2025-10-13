@@ -25,3 +25,26 @@ export const CATEGORY_LIST = [
     label: 'Đế giữ điện thoại'
   },
 ]
+
+export const PRICE_RANGE = [
+  {
+    id: 'price_00',
+    label: '< 500.000đ'
+  },
+  {
+    id: 'price_01',
+    label: '500.000 - 1.000.000đ'
+  },
+  {
+    id: 'price_02',
+    label: '1.000.000 - 2.000.000đ'
+  },
+  {
+    id: 'price_03',
+    label: '2.000.000 - 3.000.000đ'
+  },
+  {
+    id: 'price_04',
+    label: '> 3.000.000đ'
+  },
+]

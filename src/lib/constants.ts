@@ -169,7 +169,7 @@ export const listQuotes = [
   { title: 'Understand needs, then offer solutions.', id: 4 },
   { title: 'Build relationships, not just sales.', id: 5 }
 ];
-export const filterCatogories = [
+export const filterCategories = [
   {
     id: 1,
     category: 'Tất cả phòng',
@@ -417,3 +417,119 @@ export const categoryData: CategoryItem[] = [
     href: '/shop/phone-holders'
   }
 ];
+
+export const PRODUCTS_DATA : Product[] =  [
+  {
+    id: 1,
+    name: 'Bàn phím Gen 3',
+    price: 899000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'KEYBOARDS',
+    colors: ['#000000']
+  },
+  {
+    id: 2,
+    name: 'VisionX Stealth',
+    price: 2300000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'HYPERWORK',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000']
+  },
+  {
+    id: 3,
+    name: 'T6 Pro Dual - 2025',
+    price: 1250000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'HUMAN MOTION',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000']
+  },
+  {
+    id: 4,
+    name: 'T6 Pro - 2025',
+    price: 890000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'HUMAN MOTION',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000']
+  },
+  {
+    id: 5,
+    name: 'MacBook Pro M3',
+    price: 19900000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'LAPTOPS',
+    colors: ['#C0C0C0', '#000000']
+  },
+  {
+    id: 6,
+    name: 'Gaming Chair Pro',
+    price: 3500000,
+    originalPrice: 4200000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'CHAIRS',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000', '#FF0000']
+  },
+  {
+    id: 7,
+    name: 'Gaming Chair Pro',
+    price: 3500000,
+    originalPrice: 4200000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'CHAIRS',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000', '#FF0000']
+  },
+  {
+    id: 8,
+    name: 'Gaming Chair Pro',
+    price: 3500000,
+    originalPrice: 4200000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'CHAIRS',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000', '#FF0000']
+  },
+  {
+    id: 9,
+    name: 'Gaming Chair Pro',
+    price: 3500000,
+    originalPrice: 4200000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'CHAIRS',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000', '#FF0000']
+  },
+  {
+    id: 10,
+    name: 'Gaming Chair Pro',
+    price: 3500000,
+    originalPrice: 4200000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'CHAIRS',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000', '#FF0000']
+  },
+  {
+    id: 11,
+    name: 'Gaming Chair Pro',
+    price: 3500000,
+    originalPrice: 4200000,
+    image: 'https://ecommerce-uikit.netlify.app/images/product-tech/4.png',
+    category: 'CHAIRS',
+    isOnSale: true,
+    saleLabel: '15.09',
+    colors: ['#000000', '#FF0000']
+  }
+
+]

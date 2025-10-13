@@ -6,22 +6,92 @@
     display: flex;
     gap: $s32;
 
-    .related_categories {
-      h3 {
-        font-weight: $semibold;
-        font-size: $f18;
-        line-height: 140%;
-        letter-spacing: 0%;
+    .content_left {
+      width: 25rem;
+
+      .filter_header {
+        display: flex;
+        align-items: center;
+        gap: $s6;
+
+        h3 {
+          font-weight: $semibold;
+          font-size: $f18;
+          line-height: 140%;
+          letter-spacing: 0%;
+        }
       }
+
+      .filter_section_wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: $s32;
+        margin-top: $s32;
+
+        .filter_section {
+
+          h4 {
+            font-weight: $semibold;
+            font-size: $f16;
+          }
+
+          .filter_categories {
+            margin-top: $s16;
+            display: flex;
+            flex-direction: column;
+            gap: $s12;
+
+            .filter_category {
+              font-weight: $medium;
+              color: $neutral_05;
+              transition: color 0.3s ease-in-out;
+              cursor: pointer;
+
+              &:hover {
+                color: $neutral_08;
+              }
+            }
+
+
+          }
+
+          .filter_price {
+            margin-top: $s16;
+            display: flex;
+            flex-direction: column;
+            gap: $s10;
+
+            .filter_price_item {
+              display: flex;
+              align-items: center;
+              gap: $s8;
+
+
+              .price_checkbox {
+                height: $s16;
+                width: $s16;
+
+              }
+            }
+          }
+        }
+      }
+
     }
 
-    .filter_products {
+    .content_right {
       flex: 1;
 
       .filter_products_header {
         @include flex-between();
         padding-bottom: $s20;
         border-bottom: 1px solid $neutral_03;
+        margin-bottom: $s20;
+
+        h3 {
+          font-weight: $semibold;
+          font-size: $f18;
+        }
 
         .sort_trigger {
           padding: $s8 $s10;
@@ -38,6 +108,38 @@
         .sort_item span {
           font-weight: $semibold;
           font-size: $f16 !important;
+        }
+      }
+
+      .product_filtered {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $s24;
+      }
+
+      .pagination_wrapper {
+        margin: $s24 auto;
+        display: flex;
+        justify-content: center;
+
+        .pagination_group {
+          button {
+            height: 100%;
+
+            svg {
+              height: $s20;
+              width: $s20;
+            }
+          }
+        }
+
+        button {
+          font-size: $f16;
+          height: fit-content;
+          cursor: pointer;
+          min-width: 4rem;
+          padding: $s6 $s12;
+          border-radius: $br8;
         }
       }
     }

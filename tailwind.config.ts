@@ -13,7 +13,6 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary_dark: '#000000',
         secondary_green: '#38CB89',
         secondary_orange: '#FFAB00',
         secondary_red: '#FF5630',
@@ -32,7 +31,7 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
+          DEFAULT: '#3348FF',
           foreground: 'hsl(var(--primary-foreground))'
         },
         secondary: {

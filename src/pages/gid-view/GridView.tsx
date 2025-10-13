@@ -1,45 +1,110 @@
-import { Select, SelectContent, SelectGroup, SelectItem, SelectValue } from "@components/ui/select"
-import { SelectTrigger } from "@radix-ui/react-select"
-import { SectionCategory } from "./components"
-import styles from './GridView.module.scss'
+"use client";
+import { ButtonDiv, CommonSelect, ProductCard } from "@components";
+import { Checkbox } from "@components/ui/checkbox";
+import { filterCategories, PRODUCTS_DATA } from "@lib/constants";
+import { Label } from "@radix-ui/react-label";
+import filterIcon from "@svgs/filter.svg";
+import Image from "next/image";
+import { useState } from "react";
+import { SectionCategory } from "./components";
+import { PRICE_RANGE } from "./constants";
+import styles from "./GridView.module.scss";
+import { ButtonGroup } from "@components/ui/button-group";
+import { Button } from "@components/ui/button";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
-type GridViewProps = {}
+type GridViewProps = {};
 
 const GridView: React.FC<GridViewProps> = ( props ) => {
+  const [sort, setSort] = useState( "" );
   return (
     <section className={styles.collection_wrapper}>
       <SectionCategory />
       <section className={styles.collection_content}>
-        <section className={styles.related_categories}>
-          <h3>Danh mục liên quan</h3>
-        </section>
-        <section className={styles.filter_products}>
-          <div className={styles.filter_products_header}>
-            <Select>
-              <SelectTrigger className={styles.sort_trigger}>
-                <SelectValue placeholder='Sắp xếp' />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem className={styles.sort_item} value='best_seller'>Bán chạy nhất</SelectItem>
-                  <SelectItem className={styles.sort_item} value='price_highest'>Giá cao nhất</SelectItem>
-                  <SelectItem className={styles.sort_item} value='price_lowest'>Giá thấp nhất</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-            <p>123 products</p>
+        <section className={styles.content_left}>
+          <div className={styles.filter_header}>
+            <Image src={filterIcon} alt="filter" width={24} height={24} />
+            <h3>Lọc theo</h3>
           </div>
-          <div className={styles.filter_products_content}>
-            <div className={styles.filter_products_content_header}>
-              <h4>Category</h4>
-            </div>
-          </div>
-        </section>
-        <search>
+          <section className={styles.filter_section_wrapper}>
+            <section className={styles.filter_section}>
+              <h4>Nhóm sản phẩm</h4>
+              <section className={styles.filter_categories}>
+                {filterCategories.map( ( category ) => (
+                  <ButtonDiv
+                    className={styles.filter_category}
+                    key={category.id}
+                    value={category.value}
+                  >
+                    {category.category}
+                  </ButtonDiv>
+                ) )}
+              </section>
+            </section>
+            <section className={styles.filter_section}>
+              <h4>Giá sản phẩm</h4>
 
-        </search>
+              <section className={styles.filter_price}>
+                {PRICE_RANGE.map( ( price ) => (
+                  <div key={price.id} className={styles.filter_price_item}>
+                    <Checkbox className={styles.price_checkbox} id={price.id} />
+                    <Label htmlFor={price.id}>{price.label}</Label>
+                  </div>
+                ) )}
+              </section>
+            </section>
+          </section>
+        </section>
+        <section className={styles.content_right}>
+          <div className={styles.filter_products_header}>
+            <h3>
+              Camera chiếu sáng
+            </h3>
+            <div className="flex gap-x-5 items-center">
+              <CommonSelect
+                value={sort}
+                setValue={setSort}
+                placeholder="Sắp xếp theo"
+                options={[
+                  { value: "best_seller", label: "Bán chạy nhất" },
+                  { value: "price_highest", label: "Giá cao nhất" },
+                  { value: "price_lowest", label: "Giá thấp nhất" },
+                ]}
+              />
+              <p>123 products</p>
+            </div>
+
+          </div>
+          <div className={styles.product_filtered}>
+            {PRODUCTS_DATA.map( ( product ) => (
+              <ProductCard key={product.id} product={product} />
+            ) )}
+          </div>
+          <div className={styles.pagination_wrapper}>
+            <ButtonGroup>
+              <ButtonGroup className={styles.pagination_group}>
+                <Button variant="outline" size="icon" aria-label="Go Back">
+                  <ArrowLeftIcon />
+                </Button>
+              </ButtonGroup>
+              <ButtonGroup className="gap-x-2">
+                <Button variant="outline">1</Button>
+                <Button variant="outline">2</Button>
+                <Button variant="outline">3</Button>
+                <Button variant="outline">4</Button>
+
+              </ButtonGroup>
+              <ButtonGroup className={styles.pagination_group}>
+                <Button variant="outline" size="icon" aria-label="Go Back">
+                  <ArrowRightIcon />
+                </Button>
+              </ButtonGroup>
+            </ButtonGroup>
+
+          </div>
+        </section>
       </section>
     </section>
-  )
-}
-export default GridView
+  );
+};
+export default GridView;
