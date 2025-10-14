@@ -116,21 +116,19 @@ export async function generateMetadata ( { params }: ProductPageProps ): Promise
 
 export default function ProductPage ( { params }: ProductPageProps ) {
   const product = getProductData( params.slug );
-  console.log( "🚀 ~ ProductPage ~ product:", product )
-
   if ( !product ) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+      <div className="flex justify-center items-center min-h-screen bg-gray-50">
+        <div className="p-8 text-center">
+          <h1 className="mb-4 text-3xl font-bold text-gray-900">
             Sản phẩm không tìm thấy
           </h1>
-          <p className="text-gray-600 mb-6">
+          <p className="mb-6 text-gray-600">
             Sản phẩm bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.
           </p>
           <a
             href="/"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            className="inline-block px-6 py-3 font-medium text-white bg-blue-600 rounded-lg transition-colors hover:bg-blue-700"
           >
             Về trang chủ
           </a>

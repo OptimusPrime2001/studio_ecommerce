@@ -4,7 +4,8 @@ import {
   ProductInfo,
   ProductReviews,
   PurchaseSection,
-} from './components';
+} from "./components";
+import styles from "./ProductDetail.module.scss";
 
 interface ProductDetailProps {
   product: {
@@ -34,32 +35,18 @@ interface ProductDetailProps {
 
 const ProductDetail: React.FC<ProductDetailProps> = ( { product } ) => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Breadcrumb */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex items-center space-x-2 text-sm text-gray-600">
-            <a href="/" className="hover:text-blue-600 transition-colors">Trang chủ</a>
-            <span>/</span>
-            <a href="/products" className="hover:text-blue-600 transition-colors">Sản phẩm</a>
-            <span>/</span>
-            <span className="text-gray-900 font-medium">{product.category}</span>
-            <span>/</span>
-            <span className="text-gray-900 font-medium truncate">{product.name}</span>
-          </nav>
-        </div>
-      </div>
+    <div className={styles.product_detail_wrapper}>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div className={styles.product_detail_content}>
+        <div className={styles.product_detail_grid}>
           {/* Left Column - Image Gallery */}
-          <div className="space-y-4">
+          <div className={styles.product_detail_gallery}>
             <ImageGallery images={product.images} productName={product.name} />
           </div>
 
           {/* Right Column - Product Info & Purchase */}
-          <div className="space-y-6">
+          <div className={styles.product_detail_info}>
             <ProductInfo
               name={product.name}
               brand={product.brand}
@@ -77,18 +64,16 @@ const ProductDetail: React.FC<ProductDetailProps> = ( { product } ) => {
               productId={product.id}
             />
           </div>
+
         </div>
 
         {/* Bottom Section - Description & Reviews */}
-        <div className="space-y-8">
-          <ProductDescription
-            description={product.description}
-          />
-
+        <div className={styles.product_detail_bottom}>
+          <ProductDescription description={product.description} />
           <ProductReviews
             reviews={product.reviews}
             productId={product.id}
-            averageRating={product.rating}
+            rating={4.5}
             reviewCount={product.reviewCount}
           />
         </div>

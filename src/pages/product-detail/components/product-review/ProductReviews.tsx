@@ -1,8 +1,10 @@
-'use client';
+"use client";
 
-import { Star, UserCircle } from 'lucide-react';
-import { useState } from 'react';
-import styles from './ProductReviews.module.scss';
+import { CommonButton } from "@components";
+import { Label } from "@components/ui/label";
+import { PencilLine, Star, UserCircle } from "lucide-react";
+import { useState } from "react";
+import styles from "./ProductReviews.module.scss";
 
 interface Review {
   id: string;
@@ -23,17 +25,21 @@ export const ProductReviews = ( {
   productId,
   rating,
   reviewCount,
-  reviews
+  reviews,
 }: ProductReviewsProps ) => {
   const [showReviewForm, setShowReviewForm] = useState( false );
   const [newReview, setNewReview] = useState( {
-    userName: '',
+    userName: "",
     rating: 0,
-    comment: ''
+    comment: "",
   } );
   const [isSubmitting, setIsSubmitting] = useState( false );
 
-  const renderStars = ( rating: number, interactive = false, onStarClick?: ( rating: number ) => void ) => {
+  const renderStars = (
+    rating: number,
+    interactive = false,
+    onStarClick?: ( rating: number ) => void,
+  ) => {
     const stars = [];
 
     for ( let i = 1; i <= 5; i++ ) {
@@ -45,11 +51,11 @@ export const ProductReviews = ( {
           type="button"
           onClick={() => interactive && onStarClick && onStarClick( i )}
           disabled={!interactive}
-          className={`${styles.star} ${interactive ? styles.star_interactive : ''
+          className={`${styles.star} ${interactive ? styles.star_interactive : ""
             } ${isFilled ? styles.star_filled : styles.star_empty}`}
         >
           <Star size={20} />
-        </button>
+        </button>,
       );
     }
 
@@ -60,7 +66,7 @@ export const ProductReviews = ( {
     e.preventDefault();
 
     if ( !newReview.userName || !newReview.comment || newReview.rating === 0 ) {
-      alert( 'Vui lòng điền đầy đủ thông tin đánh giá!' );
+      alert( "Vui lòng điền đầy đủ thông tin đánh giá!" );
       return;
     }
 
@@ -68,26 +74,26 @@ export const ProductReviews = ( {
 
     try {
       // Simulate API call
-      await new Promise( resolve => setTimeout( resolve, 2000 ) );
+      await new Promise( ( resolve ) => setTimeout( resolve, 2000 ) );
 
-      console.log( 'Submitting review:', {
+      console.log( "Submitting review:", {
         productId,
         ...newReview,
-        date: new Date().toISOString()
+        date: new Date().toISOString(),
       } );
 
       // Reset form
       setNewReview( {
-        userName: '',
+        userName: "",
         rating: 0,
-        comment: ''
+        comment: "",
       } );
       setShowReviewForm( false );
 
-      alert( 'Cảm ơn bạn đã đánh giá sản phẩm!' );
+      alert( "Cảm ơn bạn đã đánh giá sản phẩm!" );
     } catch ( error ) {
-      console.error( 'Error submitting review:', error );
-      alert( 'Có lỗi xảy ra khi gửi đánh giá!' );
+      console.error( "Error submitting review:", error );
+      alert( "Có lỗi xảy ra khi gửi đánh giá!" );
     } finally {
       setIsSubmitting( false );
     }
@@ -95,16 +101,16 @@ export const ProductReviews = ( {
 
   const formatDate = ( dateString: string ) => {
     const date = new Date( dateString );
-    return date.toLocaleDateString( 'vi-VN', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return date.toLocaleDateString( "vi-VN", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     } );
   };
 
   const getRatingDistribution = () => {
     const distribution = [0, 0, 0, 0, 0];
-    reviews.forEach( review => {
+    reviews.forEach( ( review ) => {
       if ( review.rating >= 1 && review.rating <= 5 ) {
         distribution[review.rating - 1]++;
       }
@@ -118,47 +124,53 @@ export const ProductReviews = ( {
     <div className={styles.product_reviews}>
       {/* Reviews Summary */}
       <div className={styles.reviews_summary}>
-        <div className={styles.overall_rating}>
-          <div className={styles.rating_score}>
-            <span className={styles.rating_number}>{( rating || 0 ).toFixed( 1 )}</span>
-            <div className={styles.rating_stars}>
-              {renderStars( Math.round( rating || 0 ) )}
+        <div className={styles.reviews_header}>
+          <div className={styles.overall_rating}>
+            <div className={styles.rating_score}>
+              <span className={styles.rating_number}>
+                {( rating || 0 ).toFixed( 1 )}
+              </span>
+              <div className={styles.rating_stars}>
+                {renderStars( Math.round( rating || 0 ) )}
+              </div>
+              <span className={styles.review_count}>
+                ({reviewCount} đánh giá)
+              </span>
             </div>
-            <span className={styles.review_count}>
-              ({reviewCount} đánh giá)
-            </span>
+          </div>
+          <div className={styles.rating_breakdown}>
+            {ratingDistribution.map( ( count, index ) => {
+              const starCount = 5 - index;
+              const percentage =
+                reviewCount > 0 ? ( count / reviewCount ) * 100 : 0;
+
+              return (
+                <div key={starCount} className={styles.rating_row}>
+                  <span className={styles.star_label}>{starCount} sao</span>
+                  <div className={styles.rating_bar}>
+                    <div
+                      className={styles.rating_fill}
+                      style={{ width: `${percentage}%` }}
+                    />
+                  </div>
+                  <span className={styles.rating_count}>({count})</span>
+                </div>
+              );
+            } )}
           </div>
         </div>
 
-        <div className={styles.rating_breakdown}>
-          {ratingDistribution.map( ( count, index ) => {
-            const starCount = 5 - index;
-            const percentage = reviewCount > 0 ? ( count / reviewCount ) * 100 : 0;
-
-            return (
-              <div key={starCount} className={styles.rating_row}>
-                <span className={styles.star_label}>{starCount} sao</span>
-                <div className={styles.rating_bar}>
-                  <div
-                    className={styles.rating_fill}
-                    style={{ width: `${percentage}%` }}
-                  />
-                </div>
-                <span className={styles.rating_count}>({count})</span>
-              </div>
-            );
-          } )}
+        <div className={styles.write_review}>
+          <CommonButton
+            variant="secondary"
+            width="full"
+            onClick={() => setShowReviewForm( !showReviewForm )}
+            className={styles.write_button}
+          >
+            <PencilLine />
+            {showReviewForm ? "Hủy đánh giá" : "Viết đánh giá"}
+          </CommonButton>
         </div>
-      </div>
-
-      {/* Write Review Button */}
-      <div className={styles.write_section}>
-        <button
-          onClick={() => setShowReviewForm( !showReviewForm )}
-          className={styles.write_button}
-        >
-          {showReviewForm ? 'Hủy đánh giá' : 'Viết đánh giá'}
-        </button>
       </div>
 
       {/* Review Form */}
@@ -167,11 +179,13 @@ export const ProductReviews = ( {
           <h3 className={styles.form_title}>Đánh giá sản phẩm</h3>
 
           <div className={styles.form_group}>
-            <label className={styles.form_label}>Tên của bạn:</label>
+            <Label className={styles.form_label}>Tên của bạn:</Label>
             <input
               type="text"
               value={newReview.userName}
-              onChange={( e ) => setNewReview( { ...newReview, userName: e.target.value } )}
+              onChange={( e ) =>
+                setNewReview( { ...newReview, userName: e.target.value } )
+              }
               className={styles.form_input}
               placeholder="Nhập tên của bạn"
               required
@@ -179,24 +193,26 @@ export const ProductReviews = ( {
           </div>
 
           <div className={styles.form_group}>
-            <label className={styles.form_label}>Đánh giá:</label>
+            <Label className={styles.form_Label}>Đánh giá:</Label>
             <div className={styles.rating_input}>
-              {renderStars(
-                newReview.rating,
-                true,
-                ( rating ) => setNewReview( { ...newReview, rating } )
+              {renderStars( newReview.rating, true, ( rating ) =>
+                setNewReview( { ...newReview, rating } ),
               )}
               <span className={styles.rating_text}>
-                {newReview.rating > 0 ? `${newReview.rating}/5 sao` : 'Chọn số sao'}
+                {newReview.rating > 0
+                  ? `${newReview.rating}/5 sao`
+                  : "Chọn số sao"}
               </span>
             </div>
           </div>
 
           <div className={styles.form_group}>
-            <label className={styles.form_label}>Nhận xét:</label>
+            <Label className={styles.form_label}>Nhận xét:</Label>
             <textarea
               value={newReview.comment}
-              onChange={( e ) => setNewReview( { ...newReview, comment: e.target.value } )}
+              onChange={( e ) =>
+                setNewReview( { ...newReview, comment: e.target.value } )
+              }
               className={styles.form_textarea}
               placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm..."
               rows={4}
@@ -209,7 +225,7 @@ export const ProductReviews = ( {
             disabled={isSubmitting}
             className={styles.submit_button}
           >
-            {isSubmitting ? 'Đang gửi...' : 'Gửi đánh giá'}
+            {isSubmitting ? "Đang gửi..." : "Gửi đánh giá"}
           </button>
         </form>
       )}

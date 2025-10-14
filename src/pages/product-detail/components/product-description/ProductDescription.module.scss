@@ -1,22 +1,22 @@
 .product_desc {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: $s24;
 }
 
 .tab_nav {
   display: flex;
   border-bottom: 1px solid #e5e7eb;
   overflow-x: auto;
-  
+
   &::-webkit-scrollbar {
     height: 4px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: #c1c1c1;
     border-radius: 2px;
@@ -26,8 +26,8 @@
 .tab_button {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
+  gap: $s8;
+  padding: $s16 $s24;
   border: none;
   background: none;
   color: #6b7280;
@@ -36,12 +36,12 @@
   transition: all 0.2s ease;
   white-space: nowrap;
   border-bottom: 2px solid transparent;
-  
+
   &:hover {
     color: #374151;
     background-color: #f9fafb;
   }
-  
+
   &.tab_active {
     color: #3b82f6;
     border-bottom-color: #3b82f6;
@@ -50,41 +50,47 @@
 }
 
 .tab_icon {
-  font-size: 1.125rem;
+  font-size: $f18;
 }
 
 .tab_label {
-  font-size: 0.875rem;
+  font-size: $f14;
 }
 
 .tab_content {
-  padding: 1.5rem 0;
+  padding: $s24 0;
 }
 
 .description {
   color: #374151;
   line-height: 1.7;
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: #111827;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-top: $s24;
+    margin-bottom: $s12;
     font-weight: 600;
   }
-  
+
   p {
-    margin-bottom: 1rem;
+    margin-bottom: $s16;
   }
-  
-  ul, ol {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
+
+  ul,
+  ol {
+    margin-bottom: $s16;
+    padding-left: $s24;
   }
-  
+
   li {
-    margin-bottom: 0.5rem;
+    margin-bottom: $s8;
   }
-  
+
   strong {
     font-weight: 600;
     color: #111827;
@@ -94,46 +100,46 @@
 .specifications {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: $s24;
 }
 
 .spec_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: $s24;
 }
 
 .spec_section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $s16;
 }
 
 .spec_title {
   font-weight: 600;
   color: #111827;
   border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 0.5rem;
+  padding-bottom: $s8;
   margin: 0;
 }
 
 .spec_list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: $s12;
 }
 
 .spec_item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: $s8 0;
   border-bottom: 1px solid #f3f4f6;
 }
 
 .spec_label {
   color: #6b7280;
-  font-size: 0.875rem;
+  font-size: $f14;
 }
 
 .spec_value {
@@ -145,8 +151,8 @@
 .warranty {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  
+  gap: $s32;
+
   @media (min-width: 768px) {
     flex-direction: row;
   }
@@ -154,20 +160,20 @@
 
 .warranty_section {
   flex: 1;
-  padding: 1.5rem;
+  padding: $s24;
   background-color: #f9fafb;
-  border-radius: 0.75rem;
+  border-radius: $s12;
   border: 1px solid #e5e7eb;
 }
 
 .warranty_title {
-  font-size: 1.125rem;
+  font-size: $f18;
   font-weight: 600;
   color: #111827;
-  margin-bottom: 1rem;
+  margin-bottom: $s16;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $s8;
 }
 
 .warranty_list {
@@ -176,14 +182,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  
+  gap: $s12;
+
   li {
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: $s24;
     color: #374151;
     line-height: 1.5;
-    
+
     &::before {
       content: '✓';
       position: absolute;
@@ -197,38 +203,38 @@
 .shipping {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: $s24;
 }
 
 .shipping_section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $s16;
 }
 
 .shipping_title {
-  font-size: 1.125rem;
+  font-size: $f18;
   font-weight: 600;
   color: #111827;
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $s8;
 }
 
 .shipping_options {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $s16;
 }
 
 .shipping_option {
-  padding: 1rem;
+  padding: $s16;
   background-color: #f9fafb;
   border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
+  border-radius: $br8;
   transition: all 0.2s ease;
-  
+
   &:hover {
     border-color: #d1d5db;
     background-color: #f3f4f6;
@@ -239,7 +245,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: $s8;
 }
 
 .option_name {
@@ -254,6 +260,6 @@
 
 .option_desc {
   color: #6b7280;
-  font-size: 0.875rem;
+  font-size: $f14;
   margin: 0;
 }

@@ -1,11 +1,12 @@
 .product_info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: $s24;
+  margin-bottom: $s20;
 }
 
 .product_name {
-  font-size: 2rem;
+  font-size: $f32;
   font-weight: 700;
   color: #111827;
   line-height: 1.2;
@@ -15,7 +16,7 @@
 .brand_section {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $s8;
 
   .brand_label {
     color: #6b7280;
@@ -31,36 +32,36 @@
 .rating_section {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: $s12;
 
   .stars {
     display: flex;
-    gap: 0.125rem;
+    gap: 0.2rem; // giữ 2px theo hệ 10px
   }
 
   .rating_text {
     color: #6b7280;
-    font-size: 0.875rem;
+    font-size: $f14;
   }
 }
 
 .star_full {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: $s20;
+  height: $s20;
   color: #fbbf24;
   fill: currentColor;
 }
 
 .star_empty {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: $s20;
+  height: $s20;
   color: #d1d5db;
 }
 
 .star_half {
   position: relative;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: $s20;
+  height: $s20;
 
   .star_fill {
     position: absolute;
@@ -74,10 +75,10 @@
 .price_section {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: $s8;
 
   .current_price {
-    font-size: 2rem;
+    font-size: $f32;
     font-weight: 700;
     color: #dc2626;
   }
@@ -85,10 +86,10 @@
   .price_details {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: $s12;
 
     .original_price {
-      font-size: 1.125rem;
+      font-size: $f18;
       color: #6b7280;
       text-decoration: line-through;
     }
@@ -96,16 +97,16 @@
     .discount {
       background-color: #dc2626;
       color: white;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
-      font-size: 0.875rem;
+      padding: $s4 $s8;
+      border-radius: $br4;
+      font-size: $f14;
       font-weight: 600;
     }
   }
 }
 
 .stock_section {
-  padding: 0.75rem 0;
+  padding: $s12 0;
   border-top: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
 
@@ -125,7 +126,7 @@
 .features {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
+  gap: $s12;
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
@@ -134,17 +135,17 @@
   .feature {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem;
+    gap: $s8;
+    padding: $s12;
     background-color: #f9fafb;
-    border-radius: 0.5rem;
+    border-radius: $br8;
 
     .feature_icon {
-      font-size: 1.25rem;
+      font-size: $f20;
     }
 
     .feature_text {
-      font-size: 0.875rem;
+      font-size: $f14;
       color: #374151;
       font-weight: 500;
     }

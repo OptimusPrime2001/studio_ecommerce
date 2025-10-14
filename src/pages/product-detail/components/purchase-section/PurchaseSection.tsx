@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import { Button } from '@components/ui/button';
-import { Minus, Plus, ShoppingCart, Zap } from 'lucide-react';
-import { useState } from 'react';
-import styles from './PurchaseSection.module.scss';
+import { CommonButton } from "@components";
+import { Button } from "@components/ui/button";
+import { Minus, Plus, ShoppingCart, Zap } from "lucide-react";
+import { useState } from "react";
+import styles from "./PurchaseSection.module.scss";
 
 interface PurchaseSectionProps {
   productId: string;
@@ -11,7 +12,11 @@ interface PurchaseSectionProps {
   price: number;
 }
 
-export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionProps ) => {
+export const PurchaseSection = ( {
+  productId,
+  inStock,
+  price,
+}: PurchaseSectionProps ) => {
   const [quantity, setQuantity] = useState( 1 );
   const [isWishlisted, setIsWishlisted] = useState( false );
   const [isAddingToCart, setIsAddingToCart] = useState( false );
@@ -29,7 +34,7 @@ export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionP
     setIsAddingToCart( true );
     try {
       // Simulate API call
-      await new Promise( resolve => setTimeout( resolve, 1000 ) );
+      await new Promise( ( resolve ) => setTimeout( resolve, 1000 ) );
 
       // Here you would typically call your cart API
       console.log( `Added ${quantity} items of product ${productId} to cart` );
@@ -37,8 +42,8 @@ export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionP
       // Show success message (you might want to use a toast library)
       alert( `Đã thêm ${quantity} sản phẩm vào giỏ hàng!` );
     } catch ( error ) {
-      console.error( 'Error adding to cart:', error );
-      alert( 'Có lỗi xảy ra khi thêm vào giỏ hàng!' );
+      console.error( "Error adding to cart:", error );
+      alert( "Có lỗi xảy ra khi thêm vào giỏ hàng!" );
     } finally {
       setIsAddingToCart( false );
     }
@@ -50,7 +55,7 @@ export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionP
     setIsBuyingNow( true );
     try {
       // Simulate API call
-      await new Promise( resolve => setTimeout( resolve, 1500 ) );
+      await new Promise( ( resolve ) => setTimeout( resolve, 1500 ) );
 
       // Here you would typically redirect to checkout
       console.log( `Buying ${quantity} items of product ${productId} now` );
@@ -59,8 +64,8 @@ export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionP
       // router.push('/checkout');
       alert( `Chuyển đến trang thanh toán với ${quantity} sản phẩm!` );
     } catch ( error ) {
-      console.error( 'Error buying now:', error );
-      alert( 'Có lỗi xảy ra khi mua ngay!' );
+      console.error( "Error buying now:", error );
+      alert( "Có lỗi xảy ra khi mua ngay!" );
     } finally {
       setIsBuyingNow( false );
     }
@@ -69,13 +74,15 @@ export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionP
   const handleWishlistToggle = () => {
     setIsWishlisted( !isWishlisted );
     // Here you would typically call your wishlist API
-    console.log( `${isWishlisted ? 'Removed from' : 'Added to'} wishlist: ${productId}` );
+    console.log(
+      `${isWishlisted ? "Removed from" : "Added to"} wishlist: ${productId}`,
+    );
   };
 
   const formatPrice = ( price: number ) => {
-    return new Intl.NumberFormat( 'vi-VN', {
-      style: 'currency',
-      currency: 'VND'
+    return new Intl.NumberFormat( "vi-VN", {
+      style: "currency",
+      currency: "VND",
     } ).format( price );
   };
 
@@ -85,32 +92,33 @@ export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionP
     <div className={styles.purchase_section}>
       {/* Quantity Selector */}
       <div className={styles.quantity_section}>
-        <label className={styles.quantity_label}>Số lượng:</label>
+        <label htmlFor="quantity" className={styles.quantity_label}>Số lượng:</label>
         <div className={styles.quantity_controls}>
-          <button
+          <Button
             onClick={() => handleQuantityChange( quantity - 1 )}
             disabled={quantity <= 1}
             className={styles.quantity_button}
             aria-label="Giảm số lượng"
           >
             <Minus size={16} />
-          </button>
+          </Button>
           <input
             type="number"
             value={quantity}
-            onChange={( e ) => handleQuantityChange( parseInt( e.target.value ) || 1 )}
+            onChange={( e ) =>
+              handleQuantityChange( parseInt( e.target.value ) || 1 )
+            }
             min="1"
             max="99"
             className={styles.quantity_input}
           />
-          <button
+          <Button
             onClick={() => handleQuantityChange( quantity + 1 )}
             disabled={quantity >= 99}
             className={styles.quantity_button}
-            aria-label="Tăng số lượng"
           >
             <Plus size={16} />
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -122,25 +130,19 @@ export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionP
 
       {/* Action Buttons */}
       <div className={styles.action_buttons}>
-        <Button
+        <CommonButton
           onClick={handleAddToCart}
           disabled={!inStock || isAddingToCart}
-          className={`${styles.add_cart_btn} button_default`}
+          variant="secondary"
         >
           <ShoppingCart size={20} />
-          {isAddingToCart ? 'Đang thêm...' : 'Thêm vào giỏ'}
-        </Button>
-        <Button
-          onClick={handleBuyNow}
-          disabled={!inStock || isBuyingNow}
-          className={`${styles.buy_now_btn} button_default`}
-        >
+          {isAddingToCart ? "Đang thêm..." : "Thêm vào giỏ"}
+        </CommonButton>
+        <CommonButton onClick={handleBuyNow} disabled={!inStock || isBuyingNow}>
           <Zap size={20} />
-          {isBuyingNow ? 'Đang xử lý...' : 'Mua ngay'}
-        </Button>
+          {isBuyingNow ? "Đang xử lý..." : "Mua ngay"}
+        </CommonButton>
       </div>
-
-
 
       {/* Stock Warning */}
       {!inStock && (
@@ -148,33 +150,6 @@ export const PurchaseSection = ( { productId, inStock, price }: PurchaseSectionP
           <span>⚠️ Sản phẩm hiện tại đã hết hàng</span>
         </div>
       )}
-
-      {/* Purchase Info */}
-      <div className={styles.purchase_info}>
-        <div className={styles.info_item}>
-          <span className={styles.info_icon}>🚚</span>
-          <div className={styles.info_content}>
-            <div className={styles.info_title}>Giao hàng miễn phí</div>
-            <div className={styles.info_desc}>Cho đơn hàng từ 500.000đ</div>
-          </div>
-        </div>
-
-        <div className={styles.info_item}>
-          <span className={styles.info_icon}>🔄</span>
-          <div className={styles.info_content}>
-            <div className={styles.info_title}>Đổi trả dễ dàng</div>
-            <div className={styles.info_desc}>Trong vòng 30 ngày</div>
-          </div>
-        </div>
-
-        <div className={styles.info_item}>
-          <span className={styles.info_icon}>💳</span>
-          <div className={styles.info_content}>
-            <div className={styles.info_title}>Thanh toán an toàn</div>
-            <div className={styles.info_desc}>Bảo mật thông tin 100%</div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

@@ -1,0 +1,29 @@
+.product_detail_wrapper {
+  margin: 5rem 5%;
+
+  .product_detail_content {
+    .product_detail_grid {
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: $s40;
+
+      .product_detail_gallery {
+
+        .image_gallery {
+          border-radius: $br8;
+          overflow: hidden;
+        }
+      }
+
+      .product_detail_info {}
+    }
+
+    .product_detail_bottom {
+      margin-top: $s20;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: $s40;
+    }
+  }
+}

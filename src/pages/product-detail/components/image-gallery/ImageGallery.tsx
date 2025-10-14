@@ -1,32 +1,33 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import styles from './ImageGallery.module.scss';
+import { Button } from "@components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import styles from "./ImageGallery.module.scss";
 
 interface ImageGalleryProps {
   images: string[];
   productName: string;
 }
 
-export const ImageGallery = ({ images, productName }: ImageGalleryProps) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+export const ImageGallery = ( { images, productName }: ImageGalleryProps ) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState( 0 );
 
   const goToPrevious = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    setCurrentImageIndex( ( prevIndex ) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1,
     );
   };
 
   const goToNext = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    setCurrentImageIndex( ( prevIndex ) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
+  const goToImage = ( index: number ) => {
+    setCurrentImageIndex( index );
   };
 
   return (
@@ -40,24 +41,26 @@ export const ImageGallery = ({ images, productName }: ImageGalleryProps) => {
           className={styles.main_image}
           priority
         />
-        
+
         {/* Navigation Arrows */}
         {images.length > 1 && (
           <>
-            <button
+            <Button
               onClick={goToPrevious}
               className={styles.nav_button}
               aria-label="Ảnh trước"
+              size="icon"
             >
               <ChevronLeft size={20} />
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={goToNext}
               className={`${styles.nav_button} ${styles.nav_right}`}
               aria-label="Ảnh tiếp theo"
+              size="icon"
             >
               <ChevronRight size={20} />
-            </button>
+            </Button>
           </>
         )}
 
@@ -72,13 +75,12 @@ export const ImageGallery = ({ images, productName }: ImageGalleryProps) => {
       {/* Thumbnail Gallery */}
       {images.length > 1 && (
         <div className={styles.thumbnails}>
-          {images.map((image, index) => (
-            <button
+          {images.map( ( image, index ) => (
+            <Button
               key={index}
-              onClick={() => goToImage(index)}
-              className={`${styles.thumbnail} ${
-                index === currentImageIndex ? styles.thumb_active : ''
-              }`}
+              onClick={() => goToImage( index )}
+              className={`${styles.thumbnail} ${index === currentImageIndex ? styles.thumb_active : ""
+                }`}
             >
               <Image
                 src={image}
@@ -86,8 +88,8 @@ export const ImageGallery = ({ images, productName }: ImageGalleryProps) => {
                 fill
                 className={styles.thumb_image}
               />
-            </button>
-          ))}
+            </Button>
+          ) )}
         </div>
       )}
     </div>

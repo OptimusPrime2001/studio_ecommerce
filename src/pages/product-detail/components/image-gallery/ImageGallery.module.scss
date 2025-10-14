@@ -1,14 +1,14 @@
 .gallery {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $s16;
 
   .main_display {
     position: relative;
-    aspect-ratio: 1;
     background-color: #f3f4f6;
-    border-radius: 0.5rem;
+    border-radius: $br8;
     overflow: hidden;
+    aspect-ratio: 3/2;
 
     &:hover {
       .nav_button {
@@ -24,16 +24,24 @@
     .nav_button {
       position: absolute;
       top: 50%;
-      left: 0.5rem;
+      left: $s8;
       transform: translateY(-50%);
       background-color: rgba(255, 255, 255, 0.8);
       border: none;
-      border-radius: 50%;
-      padding: 0.5rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       opacity: 0;
+      border-radius: 100%;
+      padding: $s8;
+      box-sizing: content-box;
       transition: all 0.2s ease;
+      color: #a1a1a1;
       cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+      svg {
+        width: $s20;
+        height: $s20;
+
+      }
 
       &:hover {
         background-color: white;
@@ -41,42 +49,42 @@
 
       &.nav_right {
         left: auto;
-        right: 0.5rem;
+        right: $s8;
       }
     }
 
     .image_counter {
       position: absolute;
-      bottom: 0.5rem;
-      right: 0.5rem;
+      bottom: $s8;
+      right: $s8;
       background-color: rgba(0, 0, 0, 0.7);
       color: white;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
-      font-size: 0.875rem;
+      padding: $s4 $s8;
+      border-radius: $br4;
+      font-size: $f14;
     }
   }
 
   .thumbnails {
     display: flex;
-    gap: 0.5rem;
+    gap: $s8;
     overflow-x: auto;
-    padding: 0.25rem 0;
+    padding: $s4 0;
     align-items: center;
     justify-content: center;
 
     &::-webkit-scrollbar {
-      height: 4px;
+      height: $s4;
     }
 
     &::-webkit-scrollbar-track {
       background: #f1f1f1;
-      border-radius: 2px;
+      border-radius: $br2;
     }
 
     &::-webkit-scrollbar-thumb {
       background: #c1c1c1;
-      border-radius: 2px;
+      border-radius: $br2;
 
       &:hover {
         background: #a1a1a1;
@@ -85,11 +93,11 @@
 
     .thumbnail {
       position: relative;
-      width: 4rem;
-      height: 4rem;
+      width: 6.4rem;
+      height: 6.4rem;
       flex-shrink: 0;
       border: 2px solid transparent;
-      border-radius: 0.375rem;
+      border-radius: $br6;
       overflow: hidden;
       cursor: pointer;
       transition: all 0.2s ease;

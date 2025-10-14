@@ -10,7 +10,6 @@ interface ProductInfoProps {
   rating: number;
   reviewCount: number;
   inStock: boolean;
-  category: string;
   brand: string;
 }
 
@@ -21,7 +20,6 @@ export const ProductInfo = ( {
   rating,
   reviewCount,
   inStock,
-  category,
   brand
 }: ProductInfoProps ) => {
   const formatPrice = ( price: number ) => {
