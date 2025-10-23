@@ -1,0 +1,244 @@
+.pageOrder {
+  padding: 24px;
+
+  .layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 24px;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .left {
+    .title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .block {
+      .blockTitle {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+          font-weight: 500;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+
+      .phoneWrap {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 8px;
+      }
+
+      .phoneCode {
+        text-align: center;
+      }
+
+      .offers {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 6px;
+      }
+
+      .locationWrap {
+        display: flex;
+        align-items: center;
+        height: 38px;
+      }
+
+      .textarea {
+        width: 100%;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .delivery {
+        margin-top: 8px;
+
+        .optionGroup {
+          display: grid;
+          gap: 12px;
+          margin-top: 8px;
+
+          .option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 12px;
+            cursor: pointer;
+
+            input[type="radio"] {
+              accent-color: #111827;
+            }
+
+            .optionInfo {
+              display: flex;
+              flex-direction: column;
+              gap: 2px;
+
+              .optionTitle {
+                font-size: 14px;
+                font-weight: 600;
+              }
+
+              .optionDesc {
+                font-size: 12px;
+                color: #6b7280;
+              }
+            }
+
+            .price {
+              margin-left: auto;
+              font-weight: 600;
+            }
+
+            &.optionActive {
+              border-color: #111827;
+            }
+          }
+        }
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .right {
+    .items {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .thumb {
+          width: 44px;
+          height: 44px;
+          border: 1px solid #e5e7eb;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          background: #f9fafb;
+        }
+
+        .itemInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          flex: 1;
+
+          .itemName {
+            font-weight: 600;
+          }
+
+          .itemMeta {
+            font-size: 12px;
+            color: #6b7280;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+          }
+        }
+
+        .itemPrice {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .coupon {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .totals {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .line {
+        display: flex;
+        justify-content: space-between;
+        color: #374151;
+      }
+
+      .total {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 16px;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  @media (max-width: 980px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+
+    .left .block .row {
+      grid-template-columns: 1fr;
+    }
+
+    .left .block .phoneWrap {
+      grid-template-columns: 1fr;
+    }
+
+    .left .block .actions {
+      justify-content: flex-end;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 'use client';
 import { Logo } from '@components/common';
 import { categoryData, ICONS_SOCIAL, MENU_NAVIGATION } from '@lib/constants';
-import { cn } from '@lib/utils';
+import { cn } from '@utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Footer.module.scss';

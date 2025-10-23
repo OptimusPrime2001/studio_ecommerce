@@ -1,5 +1,5 @@
 
-import { cn, uniqueArray } from '@lib/utils';
+import { cn, uniqueArray } from 'utils';
 
 type StarIconProp = {
   numberStars: number;

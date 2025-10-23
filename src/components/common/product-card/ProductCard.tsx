@@ -1,9 +1,9 @@
 "use client";
 import { ButtonDiv, CommonButton } from "@components/shared";
 import { Button } from "@components/ui/button";
-import { cn, formatVnd } from "@lib/utils";
 import type { Product } from "@shared-types/ProductType";
-import { Heart, ShoppingCart } from "lucide-react";
+import { cn, formatVnd } from "@utils";
+import { Heart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import cartAddTo from "@/assets/svgs/cartAdd.svg";

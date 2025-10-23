@@ -1,4 +1,4 @@
-import { ProductDetail } from '@pages/product-detail';
+import { ProductDetail } from '@ui-pages/product-detail';
 import type { Metadata } from 'next';
 
 interface ProductPageProps {

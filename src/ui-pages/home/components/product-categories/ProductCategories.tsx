@@ -1,7 +1,7 @@
 'use client';
 import { Button } from '@components/ui/button';
 import { categoryData } from '@lib/constants';
-import { cn } from '@lib/utils';
+import { cn } from '@utils';
 import { ChevronLeft, ChevronRight, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';

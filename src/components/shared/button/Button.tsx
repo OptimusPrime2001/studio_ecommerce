@@ -1,5 +1,5 @@
 import { Button } from "@components/ui/button";
-import { cn } from "@lib/utils";
+import { cn } from "@utils";
 import styles from './Button.module.scss';
 
 type CommonButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {

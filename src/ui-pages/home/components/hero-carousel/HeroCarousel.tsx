@@ -10,7 +10,7 @@ import {
   CarouselPrevious
 } from '@components/ui/carousel';
 import { LIST_DATA_CAROUSEL } from '@lib/constants';
-import { cn } from '@lib/utils';
+import { cn } from '@utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';

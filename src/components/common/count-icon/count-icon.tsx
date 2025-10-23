@@ -1,4 +1,4 @@
-import { cn } from '@lib/utils';
+import { cn } from '@utils';
 import type { ReactNode } from 'react';
 import styles from './count-icon.module.scss';
 

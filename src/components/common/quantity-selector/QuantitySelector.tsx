@@ -1,7 +1,7 @@
 
 import { Minus } from '@components/icons/minus';
 import { Plus } from '@components/icons/plus';
-import { cn } from '@lib/utils';
+import { cn } from '@utils';
 import styles from './QuantitySelector.module.scss';
 
 type QuantitySelectorProps = {

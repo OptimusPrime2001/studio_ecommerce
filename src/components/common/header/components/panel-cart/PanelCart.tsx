@@ -3,7 +3,7 @@ import cartIcon from '@assets/svgs/shoppingBag.svg';
 import { QuantitySelector } from '@components';
 import { Button } from "@components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@components/ui/sheet";
-import { formatVnd, uniqueArray } from "@lib/utils";
+import { formatVnd, uniqueArray } from "@utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from 'react';
