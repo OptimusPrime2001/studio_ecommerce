@@ -1,6 +1,6 @@
 import { cn, poppins } from "@utils";
 import Link from "next/link";
-import styles from "./Logo.module.scss";
+import styles from "./LogoApp.module.scss";
 
 export const LogoApp = ( { className = "" } ) => {
   return (
