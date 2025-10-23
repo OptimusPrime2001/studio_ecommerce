@@ -1,8 +1,7 @@
 .panel_search_wrapper {
   padding: 0;
   overflow: hidden;
-  width: 400px;
-  max-width: 90vw;
+  min-width: 40rem;
 
   &>button {
     display: none;
@@ -16,12 +15,12 @@
 
     .panel_search_title {
       padding: $s32 $s24;
-      font-size: 1.25rem;
+      font-size: $f20;
       font-weight: $semibold;
       @include flex-between();
-      padding-bottom: 1.5rem;
+      padding-bottom: $s24;
       border-bottom: 1px solid #e5e7eb;
-      margin-bottom: 1.5rem;
+      margin-bottom: $s24;
     }
 
     .panel_search_content {
@@ -35,13 +34,13 @@
       // Search Input Container
       .search_input_container {
         position: relative;
-        margin-bottom: 1.5rem;
+        margin-bottom: $s24;
 
         .search_input {
           width: 100%;
-          padding: 1.5rem 1rem;
-          border-radius: 0.5rem;
-          font-size: 0.875rem;
+          padding: $s24 $s16;
+          border-radius: $s8;
+          font-size: $f16;
           background: $neutral_04;
           border: none;
           box-shadow: none;
@@ -53,13 +52,13 @@
 
         .clear_button {
           position: absolute;
-          right: 1rem;
+          right: $s16;
           color: $neutral_05;
           top: 50%;
           transform: translateY(-50%);
-          font-size: 0.75rem;
+          font-size: $f12;
           cursor: pointer;
-          padding: 0.25rem 0.5rem;
+          padding: $s8 $s12;
         }
       }
 
@@ -74,14 +73,14 @@
         .search_categories {
           display: flex;
           flex-direction: column;
-          gap: 0.2rem;
+          gap: $s8;
 
           .category_item {
-            padding: 0.5rem 0;
-            border-radius: 0.5rem;
+            padding: $s12 0;
+            border-radius: $s8;
             color: #374151;
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: $f16;
             font-weight: $medium;
 
             &:hover {
@@ -94,32 +93,32 @@
       // Search Results State
       .search_results {
         .section_title {
-          font-size: 0.75rem;
+          font-size: $f12;
           font-weight: $semibold;
           color: #6b7280;
           text-transform: uppercase;
           letter-spacing: 0.05em;
-          margin-bottom: 0.75rem;
-          padding-bottom: 0.5rem;
+          margin-bottom: $s16;
+          padding-bottom: $s8;
           border-bottom: 1px solid #f3f4f6;
-          line-height: 1.25rem;
+          line-height: $f24;
         }
 
         .products_section {
-          margin-bottom: 2rem;
+          margin-bottom: $s24;
 
           .products_list {
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: $s12;
 
             .product_item {
               display: flex;
-              gap: 1.25rem;
-              border-radius: 0.5rem;
+              gap: $s12;
+              border-radius: $s8;
 
               .product_img {
-                border-radius: 0.5rem;
+                border-radius: $s8;
                 object-fit: cover;
                 aspect-ratio: 1/1;
                 width: 6rem;
@@ -132,18 +131,18 @@
                 min-width: 0;
 
                 .product_brand {
-                  font-size: 12px;
+                  font-size: $f12;
                   color: #6b7280;
                   text-transform: uppercase;
                   letter-spacing: 0.05em;
-                  margin-bottom: 0.5rem;
+                  margin-bottom: $s8;
                 }
 
                 .product_name {
                   font-weight: $medium;
                   color: #111827;
                   line-height: 1.4;
-                  margin-bottom: 0.5rem;
+                  margin-bottom: $s8;
                   overflow: hidden;
                   display: -webkit-box;
                   -webkit-line-clamp: 2;
@@ -153,10 +152,10 @@
                 .product_price {
                   display: flex;
                   align-items: center;
-                  gap: 0.5rem;
+                  gap: $s4;
 
                   .original_price {
-                    font-size: .75rem;
+                    font-size: $f12;
                     color: #9ca3af;
                     text-decoration: line-through;
                   }
@@ -172,12 +171,12 @@
         }
 
         .collections_section {
-          margin-bottom: 32px;
+          margin-bottom: $s32;
 
           .collections_list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: $s15;
 
             .collection_item {
               color: #374151;
@@ -198,14 +197,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 12px 24px;
+            gap: $s8;
+            padding: $s12 $s24;
             background: #111827;
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
+            border-radius: $s8;
+            font-size: $f14;
+            font-weight: $medium;
             cursor: pointer;
             transition: all 0.2s ease;
 
@@ -231,29 +230,29 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 3rem 1.5rem;
-        min-height: 18.75rem;
+        padding: $s48 $s24;
+        min-height: 30rem;
 
         .no_results_icon {
-          margin-bottom: 1.5rem;
+          margin-bottom: $s24;
           opacity: 0.6;
-          height: 3.125rem;
-          width: 3.125rem;
+          height: 5rem;
+          width: 5rem;
           color: white;
         }
 
         .no_results_title {
-          font-size: 1.5rem;
+          font-size: $f24;
           font-weight: $semibold;
           color: #111827;
-          margin-bottom: 1rem;
-          line-height: 1.875rem;
+          margin-bottom: $s16;
+          line-height: 3rem;
         }
 
         .no_results_subtitle {
-          font-size: 14px;
+          font-size: $f14;
           color: #6b7280;
-          line-height: 1.25rem;
+          line-height: $f24;
         }
       }
 
@@ -262,8 +261,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 3rem 1.5rem;
-        font-size: 1.125rem;
+        padding: $s48 $s24;
+        font-size: $f18;
         color: #6b7280;
       }
     }

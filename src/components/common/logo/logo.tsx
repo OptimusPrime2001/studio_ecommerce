@@ -13,7 +13,7 @@ export const Logo = ( { className = "" } ) => {
       )}
       href="/"
     >
-      Lightning Studio
+
     </Link>
   );
 };

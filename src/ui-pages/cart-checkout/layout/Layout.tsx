@@ -11,9 +11,21 @@ type LayoutProps = {
 
 export const Layout: React.FC<LayoutProps> = ( { children } ) => {
   const { activeTab, setActiveTab } = useCartCheckoutStore();
+  const renderTitlePage = () => {
+    switch ( activeTab ) {
+      case CART_CHECKOUT_TABS.CART:
+        return 'Giỏ hàng';
+      case CART_CHECKOUT_TABS.CHECKOUT:
+        return 'Thanh toán';
+      case CART_CHECKOUT_TABS.COMPLETE:
+        return 'Thành công';
+      default:
+        return '';
+    }
+  }
   return (
     <section className={styles.cart_checkout_wrapper}>
-      <h1 className={styles.title_page}>Giỏ hàng</h1>
+      <h1 className={styles.title_page}>{renderTitlePage()}</h1>
       <section className={styles.stepper_wrapper}>
         <Tabs
           value={activeTab}
