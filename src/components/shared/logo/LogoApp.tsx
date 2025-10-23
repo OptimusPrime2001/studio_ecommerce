@@ -12,6 +12,6 @@ export const LogoApp = ( { className = "" } ) => {
         className,
       )}
       href="/"
-    >Lighning Bách</Link>
+    >Lightning Bách</Link>
   );
 };
