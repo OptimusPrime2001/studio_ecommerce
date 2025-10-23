@@ -1,2 +1,1 @@
-export { PanelSearch } from './PanelSearch';
-
+export { PanelSearch } from "./PanelSearch";

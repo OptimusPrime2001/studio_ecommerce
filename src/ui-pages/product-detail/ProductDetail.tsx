@@ -33,10 +33,9 @@ interface ProductDetailProps {
   };
 }
 
-const ProductDetail: React.FC<ProductDetailProps> = ( { product } ) => {
+const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   return (
     <div className={styles.product_detail_wrapper}>
-
       {/* Main Content */}
       <div className={styles.product_detail_content}>
         <div className={styles.product_detail_grid}>
@@ -64,7 +63,6 @@ const ProductDetail: React.FC<ProductDetailProps> = ( { product } ) => {
               productId={product.id}
             />
           </div>
-
         </div>
 
         {/* Bottom Section - Description & Reviews */}

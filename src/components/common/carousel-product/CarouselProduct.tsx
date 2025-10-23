@@ -1,16 +1,20 @@
-import { ProductCard } from "@components"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@components/ui/carousel"
-import { FEATURED_PRODUCTS } from "@lib/constants"
-import styles from "./CarouselProduct.module.scss"
-
-
+import { ProductCard } from "@components";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@components/ui/carousel";
+import { FEATURED_PRODUCTS } from "@lib/constants";
+import styles from "./CarouselProduct.module.scss";
 
 type CarouselProductProps = {
-  title: string
-}
+  title: string;
+};
 
-export const CarouselProduct: React.FC<CarouselProductProps> = ( props ) => {
-  const { title } = props
+export const CarouselProduct: React.FC<CarouselProductProps> = (props) => {
+  const { title } = props;
   return (
     <Carousel opts={{ align: "start", slidesToScroll: 1 }}>
       <div className={styles.carousel_header}>
@@ -21,15 +25,12 @@ export const CarouselProduct: React.FC<CarouselProductProps> = ( props ) => {
         </div>
       </div>
       <CarouselContent>
-        {FEATURED_PRODUCTS.map( ( product ) => (
+        {FEATURED_PRODUCTS.map((product) => (
           <CarouselItem className="basis-1/4 pl-5" key={product.id}>
-            <ProductCard
-              product={product}
-              className={styles.product_card}
-            />
+            <ProductCard product={product} className={styles.product_card} />
           </CarouselItem>
-        ) )}
+        ))}
       </CarouselContent>
     </Carousel>
-  )
-}
+  );
+};

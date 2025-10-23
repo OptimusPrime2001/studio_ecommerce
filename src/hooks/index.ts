@@ -1,1 +1,1 @@
-export { useHorizontalScroll } from './useHorizontalScroll';
+export { useResponsive } from "./useResponsive";

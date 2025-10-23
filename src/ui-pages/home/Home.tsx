@@ -1,6 +1,11 @@
-
-import { BestSeller, FeaturedProducts, HeroCarousel, NewArrivals, ProductCategories } from "./components"
-import styles from './Home.module.scss'
+import {
+  BestSeller,
+  FeaturedProducts,
+  HeroCarousel,
+  NewArrivals,
+  ProductCategories,
+} from "./components";
+import styles from "./Home.module.scss";
 
 const Home: React.FC = () => {
   return (
@@ -12,9 +17,8 @@ const Home: React.FC = () => {
         <BestSeller />
         <NewArrivals />
       </section>
-
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

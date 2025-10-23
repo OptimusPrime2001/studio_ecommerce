@@ -14,8 +14,8 @@ import { PRICE_RANGE } from "./constants";
 
 type GridViewProps = {};
 
-const Collection: React.FC<GridViewProps> = ( props ) => {
-  const [sort, setSort] = useState( "" );
+const Collection: React.FC<GridViewProps> = (props) => {
+  const [sort, setSort] = useState("");
   return (
     <section className={styles.collection_wrapper}>
       <section className={styles.collection_banner}>
@@ -32,7 +32,7 @@ const Collection: React.FC<GridViewProps> = ( props ) => {
             <section className={styles.filter_section}>
               <h4>Nhóm sản phẩm</h4>
               <section className={styles.filter_categories}>
-                {filterCategories.map( ( category ) => (
+                {filterCategories.map((category) => (
                   <ButtonDiv
                     className={styles.filter_category}
                     key={category.id}
@@ -40,19 +40,19 @@ const Collection: React.FC<GridViewProps> = ( props ) => {
                   >
                     {category.category}
                   </ButtonDiv>
-                ) )}
+                ))}
               </section>
             </section>
             <section className={styles.filter_section}>
               <h4>Giá sản phẩm</h4>
 
               <section className={styles.filter_price}>
-                {PRICE_RANGE.map( ( price ) => (
+                {PRICE_RANGE.map((price) => (
                   <div key={price.id} className={styles.filter_price_item}>
                     <Checkbox className={styles.price_checkbox} id={price.id} />
                     <Label htmlFor={price.id}>{price.label}</Label>
                   </div>
-                ) )}
+                ))}
               </section>
             </section>
           </section>
@@ -75,9 +75,9 @@ const Collection: React.FC<GridViewProps> = ( props ) => {
             </div>
           </div>
           <div className={styles.product_filtered}>
-            {PRODUCTS_DATA.map( ( product ) => (
+            {PRODUCTS_DATA.map((product) => (
               <ProductCard key={product.id} product={product} />
-            ) )}
+            ))}
           </div>
           <div className={styles.pagination_wrapper}>
             <ButtonGroup>

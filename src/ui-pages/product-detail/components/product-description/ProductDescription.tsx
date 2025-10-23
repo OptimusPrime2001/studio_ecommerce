@@ -1,27 +1,29 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import styles from './ProductDescription.module.scss';
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import styles from "./ProductDescription.module.scss";
 
 interface ProductDescriptionProps {
   description: string;
 }
 
-export const ProductDescription = ({ description }: ProductDescriptionProps) => {
-  const [activeTab, setActiveTab] = useState('description');
+export const ProductDescription = ({
+  description,
+}: ProductDescriptionProps) => {
+  const [activeTab, setActiveTab] = useState("description");
   const [isExpanded, setIsExpanded] = useState(false);
 
   const tabs = [
-    { id: 'description', label: 'Mô tả sản phẩm', icon: '📝' },
-    { id: 'specifications', label: 'Thông số kỹ thuật', icon: '⚙️' },
-    { id: 'warranty', label: 'Bảo hành & Đổi trả', icon: '🛡️' },
-    { id: 'shipping', label: 'Vận chuyển', icon: '🚚' }
+    { id: "description", label: "Mô tả sản phẩm", icon: "📝" },
+    { id: "specifications", label: "Thông số kỹ thuật", icon: "⚙️" },
+    { id: "warranty", label: "Bảo hành & Đổi trả", icon: "🛡️" },
+    { id: "shipping", label: "Vận chuyển", icon: "🚚" },
   ];
 
   const renderDescription = () => {
     return (
-      <div 
+      <div
         className={styles.description}
         dangerouslySetInnerHTML={{ __html: description }}
       />
@@ -33,9 +35,7 @@ export const ProductDescription = ({ description }: ProductDescriptionProps) => 
       <div className={styles.specifications}>
         <div className={styles.spec_grid}>
           <div className={styles.spec_section}>
-            <h4 className={styles.spec_title}>
-              Thông số chính
-            </h4>
+            <h4 className={styles.spec_title}>Thông số chính</h4>
             <div className={styles.spec_list}>
               <div className={styles.spec_item}>
                 <span className={styles.spec_label}>Độ phân giải:</span>
@@ -59,11 +59,9 @@ export const ProductDescription = ({ description }: ProductDescriptionProps) => 
               </div>
             </div>
           </div>
-          
+
           <div className={styles.spec_section}>
-            <h4 className={styles.spec_title}>
-              Video & Kết nối
-            </h4>
+            <h4 className={styles.spec_title}>Video & Kết nối</h4>
             <div className={styles.spec_list}>
               <div className={styles.spec_item}>
                 <span className={styles.spec_label}>Video:</span>
@@ -104,7 +102,7 @@ export const ProductDescription = ({ description }: ProductDescriptionProps) => 
             <li>Đổi mới trong 7 ngày đầu nếu có lỗi từ nhà sản xuất</li>
           </ul>
         </div>
-        
+
         <div className={styles.warranty_section}>
           <h4 className={styles.warranty_title}>🔄 Chính sách đổi trả</h4>
           <ul className={styles.warranty_list}>
@@ -131,7 +129,7 @@ export const ProductDescription = ({ description }: ProductDescriptionProps) => 
               </div>
               <p className={styles.option_desc}>3-5 ngày làm việc</p>
             </div>
-            
+
             <div className={styles.shipping_option}>
               <div className={styles.option_header}>
                 <span className={styles.option_name}>Giao hàng nhanh</span>
@@ -139,7 +137,7 @@ export const ProductDescription = ({ description }: ProductDescriptionProps) => 
               </div>
               <p className={styles.option_desc}>1-2 ngày làm việc</p>
             </div>
-            
+
             <div className={styles.shipping_option}>
               <div className={styles.option_header}>
                 <span className={styles.option_name}>Giao hàng siêu tốc</span>
@@ -155,13 +153,13 @@ export const ProductDescription = ({ description }: ProductDescriptionProps) => 
 
   const renderTabContent = () => {
     switch (activeTab) {
-      case 'description':
+      case "description":
         return renderDescription();
-      case 'specifications':
+      case "specifications":
         return renderSpecifications();
-      case 'warranty':
+      case "warranty":
         return renderWarranty();
-      case 'shipping':
+      case "shipping":
         return renderShipping();
       default:
         return renderDescription();
@@ -177,7 +175,7 @@ export const ProductDescription = ({ description }: ProductDescriptionProps) => 
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`${styles.tab_button} ${
-              activeTab === tab.id ? styles.tab_active : ''
+              activeTab === tab.id ? styles.tab_active : ""
             }`}
           >
             <span className={styles.tab_icon}>{tab.icon}</span>
@@ -187,9 +185,7 @@ export const ProductDescription = ({ description }: ProductDescriptionProps) => 
       </div>
 
       {/* Tab Content */}
-      <div className={styles.tab_content}>
-        {renderTabContent()}
-      </div>
+      <div className={styles.tab_content}>{renderTabContent()}</div>
     </div>
   );
 };

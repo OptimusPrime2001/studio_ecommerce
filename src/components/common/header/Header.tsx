@@ -1,5 +1,5 @@
 "use client";
-import { Logo } from "@components/common";
+import { LogoApp } from "@components";
 import { MENU_NAVIGATION } from "@lib/constants";
 import userIcon from "@svgs/userIcon.svg";
 import { cn } from "@utils";
@@ -19,7 +19,7 @@ export const Header = () => {
   return (
     <header className={styles.headerWrapper}>
       <section className="iu-d-flexcenter header-logo gap-x-2">
-        <Logo />
+        <LogoApp />
       </section>
       <ul className="iu-d-flexbetween hidden md:gap-x-6 xl:gap-x-10">
         {MENU_NAVIGATION.map( ( item ) => (

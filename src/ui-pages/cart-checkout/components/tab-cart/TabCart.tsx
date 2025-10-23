@@ -1,5 +1,4 @@
 import { Input } from "@components/ui/input";
-import type { Product } from "@shared-types/ProductType";
 import { formatVnd } from "@utils";
 import Image from "next/image";
 import {
@@ -13,8 +12,6 @@ import {
 import cartData from "@/data/cartData.json";
 import styles from "./TabCart.module.scss";
 export const TabCart: React.FC = () => {
-  type CartItem = { product: Product; qty: number };
-  type CartData = { items: CartItem[] };
   const data = cartData;
   return (
     <section className={styles.cart_page_wrapper}>
@@ -29,7 +26,7 @@ export const TabCart: React.FC = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.items.map( ( { product, qty } ) => (
+            {data.items.map( ( { product, quantity: qty } ) => (
               <TableRow key={product.id}>
                 <TableCell>
                   <div className="flex items-center gap-3">

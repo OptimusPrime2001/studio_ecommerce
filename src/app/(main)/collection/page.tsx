@@ -1,7 +1,7 @@
 import Collection from "@ui-pages/collection/Collection";
 
 const CollectionPage = () => {
-  return <Collection />
-}
+  return <Collection />;
+};
 
 export default CollectionPage;

@@ -1,8 +1,6 @@
-import { CartCheckoutPage } from "@pages"
+import { CartCheckoutPage } from "@pages";
 
 const Page: React.FC = () => {
-  return (
-    <CartCheckoutPage />
-  )
-}
-export default Page
+  return <CartCheckoutPage />;
+};
+export default Page;

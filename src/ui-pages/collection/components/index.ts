@@ -1,1 +1,1 @@
-export { SectionCategory } from './section-category/SectionCategory';
+export { SectionCategory } from "./section-category/SectionCategory";

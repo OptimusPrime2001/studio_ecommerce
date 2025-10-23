@@ -21,7 +21,7 @@ export const PanelCart: React.FC = () => {
   const handleClickCheckout = () => {
     setIsOpenPanel( false );
     router.push( "/cart-checkout?tab=checkout" );
-  }
+  };
   return (
     <Sheet open={isOpenPanel} onOpenChange={setIsOpenPanel}>
       <SheetTrigger className="text-neutral_07 flex gap-x-1 cursor-pointer">
@@ -94,7 +94,10 @@ export const PanelCart: React.FC = () => {
                 >
                   Thanh toán
                 </CommonButton>
-                <Link className={styles.button_view_cart} href="cart-checkout?tab=cart">
+                <Link
+                  className={styles.button_view_cart}
+                  href="/cart-checkout?tab=cart"
+                >
                   Xem giỏ hàng
                 </Link>
               </div>

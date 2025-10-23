@@ -6,13 +6,25 @@ const INACTIVE_CLASS_NAME = "data-[state=inactive]:hidden";
 export const CartCheckoutPage: React.FC = () => {
   return (
     <>
-      <TabsContent className={INACTIVE_CLASS_NAME} forceMount value={CART_CHECKOUT_TABS.CART}>
+      <TabsContent
+        className={INACTIVE_CLASS_NAME}
+        forceMount
+        value={CART_CHECKOUT_TABS.CART}
+      >
         <TabCart />
       </TabsContent>
-      <TabsContent className={INACTIVE_CLASS_NAME} forceMount value={CART_CHECKOUT_TABS.CHECKOUT}>
+      <TabsContent
+        className={INACTIVE_CLASS_NAME}
+        forceMount
+        value={CART_CHECKOUT_TABS.CHECKOUT}
+      >
         <TabCheckout />
       </TabsContent>
-      <TabsContent className={INACTIVE_CLASS_NAME} forceMount value={CART_CHECKOUT_TABS.COMPLETE}>
+      <TabsContent
+        className={INACTIVE_CLASS_NAME}
+        forceMount
+        value={CART_CHECKOUT_TABS.COMPLETE}
+      >
         <TabComplete />
       </TabsContent>
     </>

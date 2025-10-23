@@ -6,7 +6,7 @@ type BadgeProps = {
   className?: string | number;
 };
 
-const Badge: React.FC<BadgeProps> = ( { label, className } ) => {
+const Badge: React.FC<BadgeProps> = ({ label, className }) => {
   return (
     <span
       className={cn(

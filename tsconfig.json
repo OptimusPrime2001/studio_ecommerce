@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+     "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
         "name": "next"
@@ -31,7 +32,7 @@
       "@components": ["./src/components/index.ts"],
       "@constants": ["./src/constants/index.ts"],
       "@utils": ["./src/utils/index.ts"],
-      "@*": ["./src/*"],
+      "@*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -11,23 +11,23 @@ interface ImageGalleryProps {
   productName: string;
 }
 
-export const ImageGallery = ( { images, productName }: ImageGalleryProps ) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState( 0 );
+export const ImageGallery = ({ images, productName }: ImageGalleryProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const goToPrevious = () => {
-    setCurrentImageIndex( ( prevIndex ) =>
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1,
     );
   };
 
   const goToNext = () => {
-    setCurrentImageIndex( ( prevIndex ) =>
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
-  const goToImage = ( index: number ) => {
-    setCurrentImageIndex( index );
+  const goToImage = (index: number) => {
+    setCurrentImageIndex(index);
   };
 
   return (
@@ -75,12 +75,13 @@ export const ImageGallery = ( { images, productName }: ImageGalleryProps ) => {
       {/* Thumbnail Gallery */}
       {images.length > 1 && (
         <div className={styles.thumbnails}>
-          {images.map( ( image, index ) => (
+          {images.map((image, index) => (
             <Button
               key={index}
-              onClick={() => goToImage( index )}
-              className={`${styles.thumbnail} ${index === currentImageIndex ? styles.thumb_active : ""
-                }`}
+              onClick={() => goToImage(index)}
+              className={`${styles.thumbnail} ${
+                index === currentImageIndex ? styles.thumb_active : ""
+              }`}
             >
               <Image
                 src={image}
@@ -89,7 +90,7 @@ export const ImageGallery = ( { images, productName }: ImageGalleryProps ) => {
                 className={styles.thumb_image}
               />
             </Button>
-          ) )}
+          ))}
         </div>
       )}
     </div>

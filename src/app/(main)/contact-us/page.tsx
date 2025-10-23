@@ -20,36 +20,36 @@ import { MapSection } from "./_modules/map-section";
 import styles from "./contact-page.module.scss";
 
 const ContactPage = () => {
-  const formSchema = z.object( {
-    fullname: z.string().min( 4, {
+  const formSchema = z.object({
+    fullname: z.string().min(4, {
       message: "Fullname must be at least 4 characters.",
-    } ),
-    email: z.string().email( {
+    }),
+    email: z.string().email({
       message: "Please fill the email correct",
-    } ),
+    }),
     message: z.string(),
-  } );
-  const form = useForm<z.infer<typeof formSchema>>( {
-    resolver: zodResolver( formSchema ),
+  });
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       fullname: "",
       email: "",
       message: "",
     },
-  } );
+  });
 
   const formSection = () => {
-    const onSubmit = () => { };
+    const onSubmit = () => {};
     return (
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit( onSubmit )}
+          onSubmit={form.handleSubmit(onSubmit)}
           className={styles.form_section}
         >
           <FormField
             control={form.control}
             name="fullname"
-            render={( { field } ) => (
+            render={({ field }) => (
               <FormItem>
                 <FormLabel>FULL NAME</FormLabel>
                 <FormControl>
@@ -62,7 +62,7 @@ const ContactPage = () => {
           <FormField
             control={form.control}
             name="email"
-            render={( { field } ) => (
+            render={({ field }) => (
               <FormItem>
                 <FormLabel>EMAIL ADDRESS</FormLabel>
                 <FormControl>
@@ -75,7 +75,7 @@ const ContactPage = () => {
           <FormField
             control={form.control}
             name="message"
-            render={( { field } ) => (
+            render={({ field }) => (
               <FormItem>
                 <FormLabel>MESSAGE</FormLabel>
                 <FormControl>
@@ -98,7 +98,7 @@ const ContactPage = () => {
   };
 
   return (
-    <section className={cn( styles.contactPage, "media_width_sm" )}>
+    <section className={cn(styles.contactPage, "media_width_sm")}>
       <h1 className={poppins.className}>
         We believe in sustainable decor. We’re passionate about life at home.
       </h1>
@@ -123,21 +123,19 @@ const ContactPage = () => {
             since 2019. Our customer service is always prepared to support you
             24/7
           </p>
-          <Button >
-            Shop now
-          </Button>
+          <Button>Shop now</Button>
         </div>
       </div>
       <div className={styles.contact_us_section}>
         <h2 className={poppins.className}>Contact Us</h2>
         <div>
-          {LIST_CONTACT_US.map( ( item ) => (
+          {LIST_CONTACT_US.map((item) => (
             <div key={item.id}>
               <item.Icon />
               <span>{item.title}</span>
               <b>{item.content}</b>
             </div>
-          ) )}
+          ))}
         </div>
       </div>
       <div className={styles.form_map_section}>

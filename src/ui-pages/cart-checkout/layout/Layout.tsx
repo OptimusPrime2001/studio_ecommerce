@@ -9,34 +9,34 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-export const Layout: React.FC<LayoutProps> = ( { children } ) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { activeTab, setActiveTab } = useCartCheckoutStore();
   const renderTitlePage = () => {
-    switch ( activeTab ) {
+    switch (activeTab) {
       case CART_CHECKOUT_TABS.CART:
-        return 'Giỏ hàng';
+        return "Giỏ hàng";
       case CART_CHECKOUT_TABS.CHECKOUT:
-        return 'Thanh toán';
+        return "Thanh toán";
       case CART_CHECKOUT_TABS.COMPLETE:
-        return 'Thành công';
+        return "Thành công";
       default:
-        return '';
+        return "";
     }
-  }
+  };
   return (
     <section className={styles.cart_checkout_wrapper}>
       <h1 className={styles.title_page}>{renderTitlePage()}</h1>
       <section className={styles.stepper_wrapper}>
         <Tabs
           value={activeTab}
-          onValueChange={( value ) => setActiveTab( value as CartCheckoutTab )}
+          onValueChange={(value) => setActiveTab(value as CartCheckoutTab)}
         >
           <TabsList className={styles.stepper_list}>
             <TabsTrigger
               className={cn(
                 styles.step_item,
                 activeTab === CART_CHECKOUT_TABS.CART &&
-                styles.step_item_active,
+                  styles.step_item_active,
               )}
               value={CART_CHECKOUT_TABS.CART}
             >
@@ -47,7 +47,7 @@ export const Layout: React.FC<LayoutProps> = ( { children } ) => {
               className={cn(
                 styles.step_item,
                 activeTab === CART_CHECKOUT_TABS.CHECKOUT &&
-                styles.step_item_active,
+                  styles.step_item_active,
               )}
               value={CART_CHECKOUT_TABS.CHECKOUT}
             >
@@ -58,7 +58,7 @@ export const Layout: React.FC<LayoutProps> = ( { children } ) => {
               className={cn(
                 styles.step_item,
                 activeTab === CART_CHECKOUT_TABS.COMPLETE &&
-                styles.step_item_active,
+                  styles.step_item_active,
               )}
               value={CART_CHECKOUT_TABS.COMPLETE}
             >

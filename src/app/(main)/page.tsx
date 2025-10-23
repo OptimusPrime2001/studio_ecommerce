@@ -1,7 +1,4 @@
-
-import Home from '@ui-pages/home';
-export default function HomePage () {
-  return (
-    <Home />
-  )
+import Home from "@ui-pages/home";
+export default function HomePage() {
+  return <Home />;
 }

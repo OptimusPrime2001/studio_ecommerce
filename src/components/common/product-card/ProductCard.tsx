@@ -15,24 +15,24 @@ interface ProductCardProps {
   orderCount?: number;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ( {
+export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   className,
   orderCount = 132,
-} ) => {
+}) => {
   const router = useRouter();
 
   const handleViewProduct = () => {
-    router.push( `/products/${product.id}` );
+    router.push(`/products/${product.id}`);
   };
 
   const handleAddToCart = () => {
     // Add to cart logic here
-    console.log( "Added to cart:", product.name );
+    console.log("Added to cart:", product.name);
   };
 
   return (
-    <div className={cn( styles.product_card_wrapper, className )}>
+    <div className={cn(styles.product_card_wrapper, className)}>
       <ButtonDiv className={styles.product_img} onClick={handleViewProduct}>
         <Image
           src={product.image}
@@ -49,7 +49,7 @@ export const ProductCard: React.FC<ProductCardProps> = ( {
         <h3 className={styles.product_title}>{product.name}</h3>
         <span className={styles.order_count}>Đã bán : {orderCount}</span>
         <div className={styles.product_price}>
-          <span className={styles.price_value}>{formatVnd( product.price )}</span>
+          <span className={styles.price_value}>{formatVnd(product.price)}</span>
         </div>
       </div>
       <CommonButton

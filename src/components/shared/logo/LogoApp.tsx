@@ -2,7 +2,7 @@ import { cn, poppins } from "@utils";
 import Link from "next/link";
 import styles from "./Logo.module.scss";
 
-export const Logo = ( { className = "" } ) => {
+export const LogoApp = ( { className = "" } ) => {
   return (
     <Link
       className={cn(
@@ -12,8 +12,6 @@ export const Logo = ( { className = "" } ) => {
         className,
       )}
       href="/"
-    >
-
-    </Link>
+    >Lighning Bách</Link>
   );
 };

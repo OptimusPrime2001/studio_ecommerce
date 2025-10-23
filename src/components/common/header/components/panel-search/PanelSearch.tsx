@@ -56,40 +56,40 @@ const mockCollections = [
 ];
 
 export const PanelSearch: React.FC = () => {
-  const [isOpenPanel, setIsOpenPanel] = useState( false );
-  const [searchQuery, setSearchQuery] = useState( "" );
-  const [searchResults, setSearchResults] = useState<typeof mockProducts>( [] );
-  const [isSearching, setIsSearching] = useState( false );
+  const [isOpenPanel, setIsOpenPanel] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<typeof mockProducts>([]);
+  const [isSearching, setIsSearching] = useState(false);
 
-  const handleSearch = ( query: string ) => {
-    setSearchQuery( query );
-    setIsSearching( true );
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setIsSearching(true);
 
     // Simulate search delay
-    setTimeout( () => {
-      if ( query.trim() ) {
+    setTimeout(() => {
+      if (query.trim()) {
         // Filter products based on query
-        const results = mockProducts.filter( ( product ) =>
-          product.name.toLowerCase().includes( query.toLowerCase() ),
+        const results = mockProducts.filter((product) =>
+          product.name.toLowerCase().includes(query.toLowerCase()),
         );
-        setSearchResults( results );
+        setSearchResults(results);
       } else {
-        setSearchResults( [] );
+        setSearchResults([]);
       }
-      setIsSearching( false );
-    }, 300 );
+      setIsSearching(false);
+    }, 300);
   };
 
   const clearSearch = () => {
-    setSearchQuery( "" );
-    setSearchResults( [] );
-    setIsSearching( false );
+    setSearchQuery("");
+    setSearchResults([]);
+    setIsSearching(false);
   };
 
   const renderInitialState = () => (
     <div className={styles.search_initial_state}>
       <div className={styles.search_categories}>
-        {searchCategories.map( ( category ) => (
+        {searchCategories.map((category) => (
           <Link
             key={category.id}
             href={category.href}
@@ -97,7 +97,7 @@ export const PanelSearch: React.FC = () => {
           >
             {category.name}
           </Link>
-        ) )}
+        ))}
       </div>
     </div>
   );
@@ -107,7 +107,7 @@ export const PanelSearch: React.FC = () => {
       <div className={styles.products_section}>
         <h3 className={styles.section_title}>Sản phẩm</h3>
         <div className={styles.products_list}>
-          {searchResults.map( ( product ) => (
+          {searchResults.map((product) => (
             <Link
               key={product.id}
               href={`/product/${product.id}`}
@@ -126,25 +126,25 @@ export const PanelSearch: React.FC = () => {
                 <div className={styles.product_price}>
                   {product.originalPrice && (
                     <span className={styles.original_price}>
-                      {formatVnd( product.originalPrice )}
+                      {formatVnd(product.originalPrice)}
                     </span>
                   )}
                   <span className={styles.current_price}>
                     {product.price
-                      ? formatVnd( product.price )
-                      : `From ${formatVnd( product.price )}`}
+                      ? formatVnd(product.price)
+                      : `From ${formatVnd(product.price)}`}
                   </span>
                 </div>
               </div>
             </Link>
-          ) )}
+          ))}
         </div>
       </div>
 
       <div className={styles.collections_section}>
         <h3 className={styles.section_title}>Bộ sưu tập</h3>
         <div className={styles.collections_list}>
-          {mockCollections.map( ( collection ) => (
+          {mockCollections.map((collection) => (
             <Link
               key={collection.id}
               href={collection.href}
@@ -152,7 +152,7 @@ export const PanelSearch: React.FC = () => {
             >
               {collection.name}
             </Link>
-          ) )}
+          ))}
         </div>
       </div>
 
@@ -199,7 +199,7 @@ export const PanelSearch: React.FC = () => {
           <SheetTitle className={styles.panel_search_title}>
             Tìm kiếm
             <Image
-              onClick={() => setIsOpenPanel( false )}
+              onClick={() => setIsOpenPanel(false)}
               className="cursor-pointer"
               src={closeIcon}
               alt="close icon"
@@ -211,13 +211,13 @@ export const PanelSearch: React.FC = () => {
               <Input
                 placeholder="Tìm kiếm sản phẩm..."
                 value={searchQuery}
-                onChange={( e ) => handleSearch( e.target.value )}
+                onChange={(e) => handleSearch(e.target.value)}
                 className={styles.search_input}
               />
               {searchQuery && (
                 <Button
                   onClick={clearSearch}
-                  className={cn( styles.clear_button, "reset_btn" )}
+                  className={cn(styles.clear_button, "reset_btn")}
                 >
                   Xóa
                 </Button>

@@ -1,10 +1,10 @@
 import { Footer, Header, NotificationBar } from "@components";
 
-const MainLyout = ( {
+const MainLyout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}> ) => {
+}>) => {
   return (
     <>
       <NotificationBar />

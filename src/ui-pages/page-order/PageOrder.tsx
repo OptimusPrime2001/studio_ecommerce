@@ -54,16 +54,16 @@ const demoItems: Item[] = [
     size: "XXL",
   },
 ];
-type PageOrderProps = {}
+type PageOrderProps = {};
 
-export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
-  const [delivery, setDelivery] = useState( "pickup" ); // pickup | standard | express
-  const [offers, setOffers] = useState( false );
-  const [coupon, setCoupon] = useState( "" );
-  const [discount, setDiscount] = useState( 0 );
+export const PageOrder: React.FC<PageOrderProps> = (props) => {
+  const [delivery, setDelivery] = useState("pickup"); // pickup | standard | express
+  const [offers, setOffers] = useState(false);
+  const [coupon, setCoupon] = useState("");
+  const [discount, setDiscount] = useState(0);
 
-  const deliveryCost = useMemo( () => {
-    switch ( delivery ) {
+  const deliveryCost = useMemo(() => {
+    switch (delivery) {
       case "express":
         return 30000; // 30k
       case "standard":
@@ -72,29 +72,29 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
       default:
         return 0;
     }
-  }, [delivery] );
+  }, [delivery]);
 
   const subtotal = useMemo(
-    () => demoItems.reduce( ( sum, i ) => sum + i.price * i.qty, 0 ),
+    () => demoItems.reduce((sum, i) => sum + i.price * i.qty, 0),
     [],
   );
 
-  const tax = Math.round( subtotal * 0.02 * 100 ) / 100; // 2% ví dụ
+  const tax = Math.round(subtotal * 0.02 * 100) / 100; // 2% ví dụ
 
-  const total = Math.max( 0, subtotal - discount + deliveryCost + tax );
+  const total = Math.max(0, subtotal - discount + deliveryCost + tax);
 
   const applyCoupon = () => {
-    if ( coupon.trim().toLowerCase() === "save5" ) {
-      setDiscount( 5400 ); // ví dụ: 5.4k
+    if (coupon.trim().toLowerCase() === "save5") {
+      setDiscount(5400); // ví dụ: 5.4k
     } else {
-      setDiscount( 0 );
+      setDiscount(0);
     }
   };
 
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = ( e ) => {
+  const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     // TODO: tích hợp API checkout
-    console.log( { delivery, offers, coupon, total } );
+    console.log({ delivery, offers, coupon, total });
   };
 
   return (
@@ -157,7 +157,7 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
                 <Checkbox
                   id="offers"
                   checked={offers}
-                  onCheckedChange={( v ) => setOffers( Boolean( v ) )}
+                  onCheckedChange={(v) => setOffers(Boolean(v))}
                 />
                 <Label htmlFor="offers">Gửi email khuyến mãi hàng tuần</Label>
               </div>
@@ -230,7 +230,7 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
                       name="delivery"
                       value="pickup"
                       checked={delivery === "pickup"}
-                      onChange={() => setDelivery( "pickup" )}
+                      onChange={() => setDelivery("pickup")}
                     />
                     <div className={styles.optionInfo}>
                       <div className={styles.optionTitle}>
@@ -248,7 +248,7 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
                       name="delivery"
                       value="standard"
                       checked={delivery === "standard"}
-                      onChange={() => setDelivery( "standard" )}
+                      onChange={() => setDelivery("standard")}
                     />
                     <div className={styles.optionInfo}>
                       <div className={styles.optionTitle}>Tiêu chuẩn</div>
@@ -264,7 +264,7 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
                       name="delivery"
                       value="express"
                       checked={delivery === "express"}
-                      onChange={() => setDelivery( "express" )}
+                      onChange={() => setDelivery("express")}
                     />
                     <div className={styles.optionInfo}>
                       <div className={styles.optionTitle}>Nhanh</div>
@@ -298,7 +298,7 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
         >
           <h2 className={styles.blockTitle}>Tóm tắt đơn hàng</h2>
           <div className={styles.items}>
-            {demoItems.map( ( item, idx ) => (
+            {demoItems.map((item, idx) => (
               <div key={idx} className={styles.item}>
                 <div className={styles.thumb}>
                   <Image
@@ -317,19 +317,19 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
                   </div>
                 </div>
                 <div className={styles.itemPrice}>
-                  {new Intl.NumberFormat( "vi-VN", {
+                  {new Intl.NumberFormat("vi-VN", {
                     style: "currency",
                     currency: "VND",
-                  } ).format( item.price )}
+                  }).format(item.price)}
                 </div>
               </div>
-            ) )}
+            ))}
           </div>
 
           <div className={styles.coupon}>
             <Input
               value={coupon}
-              onChange={( e ) => setCoupon( e.target.value )}
+              onChange={(e) => setCoupon(e.target.value)}
               placeholder="Mã giảm giá"
             />
             <Button type="button" onClick={applyCoupon}>
@@ -341,47 +341,47 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
             <div className={styles.line}>
               <span>Tạm tính</span>
               <span>
-                {new Intl.NumberFormat( "vi-VN", {
+                {new Intl.NumberFormat("vi-VN", {
                   style: "currency",
                   currency: "VND",
-                } ).format( subtotal )}
+                }).format(subtotal)}
               </span>
             </div>
             <div className={styles.line}>
               <span>Giảm giá</span>
               <span>
                 -
-                {new Intl.NumberFormat( "vi-VN", {
+                {new Intl.NumberFormat("vi-VN", {
                   style: "currency",
                   currency: "VND",
-                } ).format( discount )}
+                }).format(discount)}
               </span>
             </div>
             <div className={styles.line}>
               <span>Phí vận chuyển</span>
               <span>
-                {new Intl.NumberFormat( "vi-VN", {
+                {new Intl.NumberFormat("vi-VN", {
                   style: "currency",
                   currency: "VND",
-                } ).format( deliveryCost )}
+                }).format(deliveryCost)}
               </span>
             </div>
             <div className={styles.line}>
               <span>Thuế</span>
               <span>
-                {new Intl.NumberFormat( "vi-VN", {
+                {new Intl.NumberFormat("vi-VN", {
                   style: "currency",
                   currency: "VND",
-                } ).format( tax )}
+                }).format(tax)}
               </span>
             </div>
             <div className={styles.total}>
               <span>Tổng cộng</span>
               <span>
-                {new Intl.NumberFormat( "vi-VN", {
+                {new Intl.NumberFormat("vi-VN", {
                   style: "currency",
                   currency: "VND",
-                } ).format( total )}
+                }).format(total)}
               </span>
             </div>
           </div>
@@ -389,4 +389,4 @@ export const PageOrder: React.FC<PageOrderProps> = ( props ) => {
       </div>
     </main>
   );
-}
+};

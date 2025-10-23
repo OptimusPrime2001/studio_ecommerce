@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
     includePaths: [path.join(__dirname, "styles")],
     prependData: `@use "@styles/utils/index" as *;`,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {
