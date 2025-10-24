@@ -3,40 +3,58 @@ import { Tabs, TabsList, TabsTrigger } from "@components/ui/tabs";
 import { CART_CHECKOUT_TABS, type CartCheckoutTab } from "@constants";
 import { useCartCheckoutStore } from "@store";
 import { cn } from "@utils";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import styles from "./Layout.module.scss";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC<LayoutProps> = ( { children } ) => {
   const { activeTab, setActiveTab } = useCartCheckoutStore();
+  const searchParams = useSearchParams();
+  const { replace } = useRouter();
+  const pathname = usePathname();
+  const currentTab = searchParams.get( "tab" );
   const renderTitlePage = () => {
-    switch (activeTab) {
+    switch ( currentTab ) {
       case CART_CHECKOUT_TABS.CART:
         return "Giỏ hàng";
       case CART_CHECKOUT_TABS.CHECKOUT:
-        return "Thanh toán";
+        return "Thông tin thanh toán";
       case CART_CHECKOUT_TABS.COMPLETE:
-        return "Thành công";
+        return "Hoàn tất đơn hàng";
       default:
         return "";
     }
   };
+  const handleTabChange = ( tab: CartCheckoutTab ) => {
+    setActiveTab( tab );
+    const params = new URLSearchParams( searchParams );
+    params.set( `tab`, tab );
+    replace( `${pathname}?${params.toString()}` );
+  };
+  useEffect( () => {
+    if ( currentTab ) {
+      setActiveTab( currentTab as CartCheckoutTab );
+    }
+  }, [currentTab, setActiveTab] );
   return (
     <section className={styles.cart_checkout_wrapper}>
       <h1 className={styles.title_page}>{renderTitlePage()}</h1>
       <section className={styles.stepper_wrapper}>
         <Tabs
+          className={styles.stepper}
           value={activeTab}
-          onValueChange={(value) => setActiveTab(value as CartCheckoutTab)}
+          onValueChange={( value ) => handleTabChange( value as CartCheckoutTab )}
         >
           <TabsList className={styles.stepper_list}>
             <TabsTrigger
               className={cn(
                 styles.step_item,
                 activeTab === CART_CHECKOUT_TABS.CART &&
-                  styles.step_item_active,
+                styles.step_item_active,
               )}
               value={CART_CHECKOUT_TABS.CART}
             >
@@ -47,7 +65,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               className={cn(
                 styles.step_item,
                 activeTab === CART_CHECKOUT_TABS.CHECKOUT &&
-                  styles.step_item_active,
+                styles.step_item_active,
               )}
               value={CART_CHECKOUT_TABS.CHECKOUT}
             >
@@ -58,7 +76,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               className={cn(
                 styles.step_item,
                 activeTab === CART_CHECKOUT_TABS.COMPLETE &&
-                  styles.step_item_active,
+                styles.step_item_active,
               )}
               value={CART_CHECKOUT_TABS.COMPLETE}
             >

@@ -14,5 +14,5 @@ export const uniqueArray = (number: number): number[] => {
   return Array.from(uniqueArray) as number[];
 };
 export const formatVnd = (price: number) => {
-  return `${new Intl.NumberFormat("vi-VN").format(Math.floor(price))} VND`;
+  return price.toLocaleString("vi-VN") + " VND";
 };

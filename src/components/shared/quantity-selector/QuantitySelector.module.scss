@@ -1,0 +1,15 @@
+.quantity_selector {
+  border-radius: $s4;
+  border: 1px solid $neutral_06;
+  display: flex;
+  align-items: center;
+
+  button {
+    cursor: pointer;
+  }
+
+  span {
+    font-weight: $semibold;
+    font-size: $f12;
+  }
+}
