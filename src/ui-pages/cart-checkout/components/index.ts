@@ -1,3 +1,3 @@
-export { TabCart } from "./tab-cart/TabCart";
-export { TabCheckout } from "./tab-checkout/TabCheckout";
-export { TabComplete } from "./tab-complete/TabComplete";
+export { CheckoutDetail } from "./checkout-detail/CheckoutDetail";
+export { OrderComplete } from "./order-complete/OrderComplete";
+export { ShoppingCart } from "./shopping-cart/ShoppingCart";

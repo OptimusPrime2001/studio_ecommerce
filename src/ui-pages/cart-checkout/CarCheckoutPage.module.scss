@@ -1,0 +1,13 @@
+.cart_checkout_wrapper {
+  padding: 8rem 0;
+  margin: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .title_page {
+    font-size: 5.4rem;
+    font-weight: $medium;
+  }
+}
