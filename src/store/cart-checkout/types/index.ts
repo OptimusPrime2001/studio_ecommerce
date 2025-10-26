@@ -1,4 +1,5 @@
 import type { ProductCart } from "@shared-types/shoppingCart";
+import type { CheckoutFormValues } from "../../../schemas/checkoutSchema";
 
 export interface UISlice {
   currentStep: number;
@@ -6,6 +7,7 @@ export interface UISlice {
   setCurrentStep: (step: number) => void;
   setIsCompleted: (isCompleted: boolean) => void;
 }
+
 export interface ShoppingCartSlice {
   selectedProducts: ProductCart[];
   couponCode: string;
@@ -19,4 +21,15 @@ export interface ShoppingCartSlice {
   setSelectedProducts: (products: ProductCart[]) => void;
   setQuantityProduct: (productId: number, quantity: number) => void;
 }
-export interface CartCheckoutState extends UISlice, ShoppingCartSlice {}
+
+export interface CheckoutSlice {
+  checkoutForm: CheckoutFormValues;
+  setCheckoutForm: (values: CheckoutFormValues) => void;
+  updateCheckoutForm: (values: Partial<CheckoutFormValues>) => void;
+  resetCheckoutForm: () => void;
+}
+
+export interface CartCheckoutState
+  extends UISlice,
+    ShoppingCartSlice,
+    CheckoutSlice {}

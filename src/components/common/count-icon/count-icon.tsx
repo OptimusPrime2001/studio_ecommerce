@@ -8,17 +8,17 @@ type CountIconProps = {
   className?: string;
 };
 
-const CountIcon: React.FC<CountIconProps> = ({
+const CountIcon: React.FC<CountIconProps> = ( {
   iconElement,
   count,
   className,
-}) => {
+} ) => {
   return (
-    <div className={cn(styles.countIconWrapper, className)}>
+    <div className={cn( styles.countIconWrapper, className )}>
       {iconElement}
       <span
         className={cn(
-          "index_ellipse iu-d-flexcenter dark:!bg-neutral_00 dark:!text-neutral_07",
+          "index_ellipse iu-d-flexcenter dark:!bg-neutral_01 dark:!text-neutral_07",
         )}
       >
         {count}

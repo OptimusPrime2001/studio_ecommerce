@@ -35,7 +35,6 @@ module.exports = {
         secondary_green: "#38CB89",
         secondary_orange: "#FFAB00",
         secondary_red: "#FF5630",
-        neutral_00: "#e8e9ea",
         neutral_01: "#FEFEFE",
         neutral_02: "#F3F5F7",
         neutral_03: "#E8ECEF",

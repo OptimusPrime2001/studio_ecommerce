@@ -23,6 +23,7 @@
       "@icons/*": ["./src/components/icons/*"],
       "@svgs/*": ["./src/assets/svgs/*"],
       "@images/*": ["./src/assets/images/*"],
+      "@schemas": ["./src/schemas/index"],
       "@pages": ["./src/ui-pages/index"],
       "@providers/*": ["./src/providers/*"],
       "@data/*": ["./src/data/*"],

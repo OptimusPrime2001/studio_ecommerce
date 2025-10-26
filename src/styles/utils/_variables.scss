@@ -71,21 +71,31 @@ $grid-breakpoints: (
   2xl: 1440px,
   3xl: 1536px) !default;
 
+// Color variables
 $primary: #3348FF;
 $secondary_green: #38cb89;
 $secondary_orange: #ffab00;
 $secondary_red: #ff5630;
-$neutral_00: #e8e9ea;
-$neutral_01: #fefefe;
-$neutral_02: #f3f5f7;
-$neutral_03: #e8ecef;
-$neutral_04: #1d1d2006;
+// Neutral light colors
+$neutral_01: #FEFEFE;
+$neutral_02: #F9FAFB;
+$neutral_03: #E8ECEF;
+$neutral_04 : #F3F5F7;
+// Neutral dark colors
 $neutral_05: #6c7275;
 $neutral_06: #343839;
 $neutral_07: #232627;
-$neutral_08: #030712;
-$neutral_09: #121212;
-$border_01: #eaeaea;
+$neutral_08: #141718;
+
+//Shadow variables
+$shadow_01: rgba(26, 26, 26, 0.07) 0rem 0.0625rem 0rem 0rem;
+$shadow_02: rgba(26, 26, 26, 0.07) 0rem 0.1875rem 0.0625rem -0.0625rem;
+$shadow_03: rgba(26, 26, 26, 0.2) 0rem 0.25rem 0.375rem -0.125rem;
+$shadow_04: rgba(26, 26, 26, 0.22) 0rem 0.5rem 1rem -0.25rem;
+$shadow_05: rgba(26, 26, 26, 0.24) 0rem 0.75rem 1.25rem -0.5rem;
+
+
+
 
 // width and height variables
 $w10: 10%;

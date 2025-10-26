@@ -26,7 +26,7 @@ export const PanelCart: React.FC = () => {
     <Sheet open={isOpenPanel} onOpenChange={setIsOpenPanel}>
       <SheetTrigger className="text-neutral_07 flex gap-x-1 cursor-pointer">
         <Image src={cartIcon} alt="cart icon" />
-        <span className="index_ellipse iu-d-flexcenter dark:!bg-neutral_00 dark:!text-neutral_07">
+        <span className="index_ellipse iu-d-flexcenter dark:!bg-neutral_01 dark:!text-neutral_07">
           3
         </span>
       </SheetTrigger>

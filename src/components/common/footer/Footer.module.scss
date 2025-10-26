@@ -34,7 +34,7 @@
       gap: 4.8rem;
 
       .nav_link {
-        color: $neutral_00;
+        color: $neutral_01;
         text-decoration: none;
         font-size: 1.6rem;
         font-weight: $medium;
@@ -113,12 +113,12 @@
       align-items: center;
 
       .social_link {
-        color: $neutral_00;
+        color: $neutral_01;
         transition: color 0.3s ease, transform 0.3s ease;
         @include flex-center();
 
         &:hover {
-          color: $neutral_00;
+          color: $neutral_01;
           transform: translateY(-5px);
         }
       }
