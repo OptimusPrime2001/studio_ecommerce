@@ -1,29 +1,29 @@
 [
   {
-    "title": "Total orders",
+    "title": "Tổng đơn hàng",
     "value": "45",
-    "change": "+9% from last period",
+    "change": "+9% từ kỳ trước",
     "positive": true,
     "icon": "ShoppingBag"
   },
   {
-    "title": "Gross Sale",
-    "value": "$31,700",
-    "change": "+3% from last period",
+    "title": "Doanh thu",
+    "value": "20000000",
+    "change": "+3% từ kỳ trước",
     "positive": true,
     "icon": "DollarSign"
   },
   {
-    "title": "Leads & visits",
-    "value": "45,901",
-    "change": "-3% from last period",
+    "title": "Lượt truy cập",
+    "value": "45,000",
+    "change": "-3% từ kỳ trước",
     "positive": false,
     "icon": "Eye"
   },
   {
-    "title": "Returning customers",
+    "title": "Khách hàng quay lại",
     "value": "45",
-    "change": "+9% from last period",
+    "change": "+9% từ kỳ trước",
     "positive": true,
     "icon": "Users"
   }

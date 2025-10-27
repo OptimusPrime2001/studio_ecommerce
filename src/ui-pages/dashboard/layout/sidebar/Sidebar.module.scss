@@ -1,0 +1,45 @@
+.sidebar_wrapper {
+  background: #202B46;
+  color: $neutral_01
+}
+
+.sidebar_header {
+  display: flex;
+  gap: $s12;
+  height: 7rem;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid $neutral_05;
+
+  span {
+    font-size: $f18;
+    font-weight: $semibold;
+    color: $neutral_01
+  }
+}
+
+.sidebar_menu {
+  .menu_item {
+    .menu_button {
+      padding: $s10 $s12;
+      font-size: $f16;
+      font-weight: $medium;
+      color: $neutral_04;
+      opacity: 0.3;
+      transition: all 0.3s;
+
+      &[data-active="true"] {
+        color: $neutral_01;
+        opacity: 1;
+        background-color: $infor;
+        border-radius: $s6;
+      }
+
+      &:hover {
+        color: $neutral_01;
+        opacity: 1;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,9 @@
+.main_dashboard {
+  flex: 1;
+  margin-top: 7rem;
+
+  .content_dashboard {
+    position: relative;
+    z-index: 10;
+  }
+}

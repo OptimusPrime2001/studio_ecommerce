@@ -13,7 +13,7 @@ type CarouselProductProps = {
   title: string;
 };
 
-export const CarouselProduct: React.FC<CarouselProductProps> = (props) => {
+export const CarouselProduct: React.FC<CarouselProductProps> = ( props ) => {
   const { title } = props;
   return (
     <Carousel opts={{ align: "start", slidesToScroll: 1 }}>
@@ -25,11 +25,11 @@ export const CarouselProduct: React.FC<CarouselProductProps> = (props) => {
         </div>
       </div>
       <CarouselContent>
-        {FEATURED_PRODUCTS.map((product) => (
+        {FEATURED_PRODUCTS.map( ( product ) => (
           <CarouselItem className="basis-1/4 pl-5" key={product.id}>
             <ProductCard product={product} className={styles.product_card} />
           </CarouselItem>
-        ))}
+        ) )}
       </CarouselContent>
     </Carousel>
   );

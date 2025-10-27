@@ -1,13 +1,6 @@
 "use client";
 
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
   CartesianGrid,
   Line,
   LineChart,
@@ -16,6 +9,13 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const data = [
   { month: "Jan", sales: 4 },
@@ -32,7 +32,7 @@ const data = [
   { month: "Dec", sales: 15 },
 ];
 
-export function SalesChart() {
+export function SalesChart () {
   return (
     <Card className="bg-card">
       <CardHeader>

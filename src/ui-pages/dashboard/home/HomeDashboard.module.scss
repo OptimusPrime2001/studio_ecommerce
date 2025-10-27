@@ -1,0 +1,41 @@
+.dashboard_page {
+  padding: $s24;
+  background-color: $neutral_02;
+
+  .section_stack {
+    display: flex;
+    flex-direction: column;
+    gap: $s24; // replaces Tailwind space-y-6
+  }
+
+  .page_header {
+    margin-bottom: $s12;
+
+    .page_title {
+      font-size: $f32; // approx Tailwind text-3xl
+      font-weight: $bold; // font-bold
+      color: $neutral_08; // similar to text-foreground
+      line-height: $lh135;
+    }
+  }
+
+  .layout_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $s24; // replaces Tailwind gap-6
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(3, 1fr); // lg:grid-cols-3
+    }
+  }
+
+  .analytics_panel {
+    @include media-breakpoint-up(lg) {
+      grid-column: span 2; // lg:col-span-2
+    }
+  }
+
+  .top_products_panel {
+    // right column styles placeholder
+  }
+}

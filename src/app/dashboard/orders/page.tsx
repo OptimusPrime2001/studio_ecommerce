@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import topProducts from "@/data/top-products.json";
 
-export function TopProducts() {
+const ListProducts = () => {
   return (
     <Card className="bg-card">
       <CardHeader>
@@ -19,7 +19,7 @@ export function TopProducts() {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {topProducts.map((product, index) => (
+          {topProducts.map( ( product, index ) => (
             <div
               key={product.id}
               className="flex items-start gap-3 pb-4 border-b border-border last:border-0"
@@ -41,7 +41,7 @@ export function TopProducts() {
                 </div>
               </div>
             </div>
-          ))}
+          ) )}
           <Button variant="outline" className="w-full mt-4 bg-transparent">
             View more
           </Button>
@@ -50,3 +50,4 @@ export function TopProducts() {
     </Card>
   );
 }
+export default ListProducts;

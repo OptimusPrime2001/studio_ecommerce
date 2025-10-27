@@ -1,0 +1,106 @@
+
+
+.card {
+  background-color: $neutral_02;
+}
+
+.card_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_actions {
+  display: flex;
+  gap: $s8;
+}
+
+.download_btn {
+  background-color: $neutral_08;
+  color: $neutral_01;
+}
+
+.search_section {
+  margin-bottom: $s24;
+}
+
+.search_row {
+  display: flex;
+  gap: $s8;
+}
+
+.search_input {
+  flex: 1;
+}
+
+.table_wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  font-size: $f14;
+}
+
+.table_head_row {
+  border-bottom: 1px solid $neutral_03;
+}
+
+.th {
+  text-align: left;
+  padding: $s12 $s16;
+  font-weight: $semibold;
+  color: $neutral_08;
+}
+
+.row {
+  border-bottom: 1px solid $neutral_03;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $neutral_02;
+  }
+}
+
+.cell {
+  padding: $s12 $s16;
+}
+
+.order_id {
+  color: $primary;
+  font-weight: $medium;
+}
+
+.muted {
+  color: $neutral_05;
+}
+
+.status_completed {
+  background-color: #dcfce7; // green-100
+  color: $secondary_green;
+}
+.status_pending {
+  background-color: #ffedd5; // orange-100
+  color: $secondary_orange;
+}
+.status_rejected {
+  background-color: #fee2e2; // red-100
+  color: $secondary_red;
+}
+.status_draft {
+  background-color: #f3f4f6; // gray-100
+  color: $neutral_06;
+}
+
+.view_detail {
+  color: $primary;
+}
+
+.view_all_wrap {
+  margin-top: $s24;
+}
+
+.view_all_btn {
+  width: 100%;
+  background-color: transparent;
+}
