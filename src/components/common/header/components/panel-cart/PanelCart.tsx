@@ -16,11 +16,11 @@ import { useState } from "react";
 import styles from "./PanelCard.module.scss";
 
 export const PanelCart: React.FC = () => {
-  const [isOpenPanel, setIsOpenPanel] = useState( false );
+  const [isOpenPanel, setIsOpenPanel] = useState(false);
   const router = useRouter();
   const handleClickCheckout = () => {
-    setIsOpenPanel( false );
-    router.push( "/cart-checkout?tab=checkout" );
+    setIsOpenPanel(false);
+    router.push("/cart-checkout");
   };
   return (
     <Sheet open={isOpenPanel} onOpenChange={setIsOpenPanel}>
@@ -35,7 +35,7 @@ export const PanelCart: React.FC = () => {
           <SheetTitle className={styles.panel_cart_title}>
             Giỏ hàng
             <Image
-              onClick={() => setIsOpenPanel( false )}
+              onClick={() => setIsOpenPanel(false)}
               className="cursor-pointer"
               src={closeIcon}
               alt="close icon"
@@ -43,7 +43,7 @@ export const PanelCart: React.FC = () => {
           </SheetTitle>
           <section className={styles.panel_cart_content}>
             <section className={styles.cart_content_list}>
-              {uniqueArray( 7 ).map( ( item ) => (
+              {uniqueArray(7).map((item) => (
                 <div key={item} className={styles.cart_content_item}>
                   <Image
                     className={styles.content_item_img}
@@ -56,7 +56,7 @@ export const PanelCart: React.FC = () => {
                     <div className={styles.item_name_price}>
                       <span className={styles.item_name}>Máy ảnh sony</span>
                       <span className={styles.item_price}>
-                        {formatVnd( 900000 )}
+                        {formatVnd(900000)}
                       </span>
                     </div>
                     <div className={styles.item_variant}>
@@ -69,10 +69,13 @@ export const PanelCart: React.FC = () => {
                         alt="close icon"
                       />
                     </div>
-                    <QuantitySelector count={3} />
+                    <QuantitySelector
+                      value={3}
+                      onValueChange={(value) => console.log(value)}
+                    />
                   </div>
                 </div>
-              ) )}
+              ))}
             </section>
             <section className={styles.cart_content_summary}>
               <div className={styles.summary_subtotal}>
@@ -82,7 +85,7 @@ export const PanelCart: React.FC = () => {
                 <div className={styles.sub_total_value}>
                   <span>Tổng tiền</span>
                   <span className={styles.sub_total_price}>
-                    {formatVnd( 900000 )}
+                    {formatVnd(900000)}
                   </span>
                 </div>
               </div>
@@ -94,10 +97,7 @@ export const PanelCart: React.FC = () => {
                 >
                   Thanh toán
                 </CommonButton>
-                <Link
-                  className={styles.button_view_cart}
-                  href="/cart-checkout?tab=cart"
-                >
+                <Link className={styles.button_view_cart} href="/cart-checkout">
                   Xem giỏ hàng
                 </Link>
               </div>

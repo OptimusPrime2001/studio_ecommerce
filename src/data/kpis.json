@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Total orders",
+    "value": "45",
+    "change": "+9% from last period",
+    "positive": true,
+    "icon": "ShoppingBag"
+  },
+  {
+    "title": "Gross Sale",
+    "value": "$31,700",
+    "change": "+3% from last period",
+    "positive": true,
+    "icon": "DollarSign"
+  },
+  {
+    "title": "Leads & visits",
+    "value": "45,901",
+    "change": "-3% from last period",
+    "positive": false,
+    "icon": "Eye"
+  },
+  {
+    "title": "Returning customers",
+    "value": "45",
+    "change": "+9% from last period",
+    "positive": true,
+    "icon": "Users"
+  }
+]

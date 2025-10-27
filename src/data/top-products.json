@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Bonaqua water 2 litres",
+    "pcs": 794,
+    "price": "$28,967"
+  },
+  {
+    "id": 2,
+    "name": "Coca cola classic 0.5 litr",
+    "pcs": 138,
+    "price": "$8,710"
+  },
+  {
+    "id": 3,
+    "name": "Samsung Galaxy S27 Black",
+    "pcs": 124,
+    "price": "$710"
+  },
+  {
+    "id": 4,
+    "name": "Miller yogi semechka 2 ltrs",
+    "pcs": 113,
+    "price": "$3,811"
+  },
+  {
+    "id": 5,
+    "name": "Bounty trio large",
+    "pcs": 98,
+    "price": "$1,891"
+  }
+]
