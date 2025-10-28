@@ -1,4 +1,102 @@
+.latest_orders_wrapper {
+  background-color: #ffffff;
+  padding: $s24;
+  border-radius: $s14;
+  box-shadow: $shadow_03;
+
+  .card_header {
+    padding: 0;
+
+    .header_title {
+      font-size: $f24;
+      font-weight: $bold;
+      margin-bottom: $s12;
+    }
+
+    .header_description {
+      font-size: $f14;
+      font-weight: $medium;
+      color: $neutral_05;
+    }
+  }
+
+  .card_content {
+    padding: 0;
+
+    .filter_section {
+      display: flex;
+      align-items: center;
+      gap: $s24;
+      justify-content: flex-end;
+      margin-bottom: $s24;
+
+      .filter_type,
+      .filter_status {
+        display: flex;
+        align-items: center;
+        gap: $s12;
+
+        span.filter_label {
+          font-weight: $medium;
+          color: #99A1B7;
+        }
+      }
+
+      .filter_search {
+        position: relative;
+
+        .search_icon {
+          position: absolute;
+          left: $s12;
+          top: 50%;
+          transform: translateY(-50%);
+          color: $neutral_05;
+        }
+
+        .search_input {
+          padding-left: 5rem; // space for icon
+          background-color: $neutral_04;
+          border: 0;
+        }
+      }
 
 
-// All table-related styles have been removed as we're now using shadcn Table components
-// The component now uses Tailwind CSS classes for styling
+    }
+
+    .latest_orders_table {
+      .table_header {
+        background-color: $neutral_04;
+      }
+
+      .table_body {
+        .order_id {
+          font-weight: $semibold;
+          color: $neutral_06;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            color: $infor;
+          }
+        }
+
+        .action_button {
+          border-radius: $s8;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            background-color: $neutral_04;
+          }
+        }
+
+      }
+    }
+
+    .action_view_more {
+      margin-top: $s24;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+}

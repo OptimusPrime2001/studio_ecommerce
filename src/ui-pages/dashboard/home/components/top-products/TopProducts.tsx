@@ -1,13 +1,5 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import topProducts from "@/data/top-products.json";
 import { CommonButton } from "@components";
 import {
   Table,
@@ -20,9 +12,17 @@ import {
 import { formatVnd } from "@utils";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import topProducts from "@/data/top-products.json";
 import styles from "./TopProducts.module.scss";
 
-export function TopProducts() {
+export function TopProducts () {
   const router = useRouter();
   return (
     <Card className={styles.top_products_wrapper}>
@@ -39,13 +39,13 @@ export function TopProducts() {
           <TableHeader>
             <TableRow className={styles.table_header_row}>
               <TableHead className="w-[10rem]">Ảnh</TableHead>
-              <TableHead className="w-[10rem]">Tên sản phẩm</TableHead>
+              <TableHead className="w-[5rem]">Tên sản phẩm</TableHead>
               <TableHead className="w-[15rem]">Số lượng</TableHead>
               <TableHead className="w-[15rem]">Giá</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {topProducts?.map((product) => (
+            {topProducts?.map( ( product ) => (
               <TableRow className={styles.table_top_products} key={product.id}>
                 <TableCell className={styles.cell_id}>
                   <Image
@@ -56,22 +56,22 @@ export function TopProducts() {
                     className={styles.product_image}
                   />
                 </TableCell>
-                <TableCell className={styles.cell_name}>
+                <TableCell >
                   {product.name}
                 </TableCell>
-                <TableCell className={styles.cell_quantity}>
+                <TableCell >
                   {product.quanity}
                 </TableCell>
-                <TableCell className={styles.cell_price}>
-                  {formatVnd(Number(product.price))}
+                <TableCell >
+                  {formatVnd( Number( product.price ) )}
                 </TableCell>
               </TableRow>
-            ))}
+            ) )}
           </TableBody>
         </Table>
         <div className={styles.action_view_more}>
           <CommonButton
-            onClick={() => router.push("/dashboard/products")}
+            onClick={() => router.push( "/dashboard/products" )}
             variant="secondary"
           >
             Xem thêm

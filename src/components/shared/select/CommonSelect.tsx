@@ -19,7 +19,7 @@ import styles from "./CommonSelect.module.scss";
 
 type CommonSelectProps = {
   value: string;
-  setValue: (value: string) => void;
+  setValue: ( value: string ) => void;
   disabled?: boolean;
   placeholder: string;
   options: {
@@ -27,9 +27,9 @@ type CommonSelectProps = {
     label: string;
   }[];
 };
-export const CommonSelect = (props: CommonSelectProps) => {
+export const CommonSelect = ( props: CommonSelectProps ) => {
   const { value, setValue, disabled, placeholder, options } = props;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState( false );
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -42,7 +42,7 @@ export const CommonSelect = (props: CommonSelectProps) => {
           className={styles.select_trigger}
         >
           {value
-            ? options.find((opt) => opt.value === value)?.label
+            ? options.find( ( opt ) => opt.value === value )?.label
             : placeholder}
           <ChevronsUpDownIcon className={styles.select_icon} />
         </Button>
@@ -51,25 +51,25 @@ export const CommonSelect = (props: CommonSelectProps) => {
         <Command>
           <CommandList>
             <CommandGroup className={styles.select_group}>
-              {options.map((opt) => (
+              {options.map( ( opt ) => (
                 <CommandItem
                   className={styles.select_item}
                   key={opt.value}
                   value={opt.value}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue);
-                    setOpen(false);
+                  onSelect={( currentValue ) => {
+                    setValue( currentValue === value ? "" : currentValue );
+                    setOpen( false );
                   }}
                 >
+                  {opt.label}
                   <CheckIcon
                     className={cn(
                       styles.select_check_icon,
                       value === opt.value ? "opacity-100" : "opacity-0",
                     )}
                   />
-                  {opt.label}
                 </CommandItem>
-              ))}
+              ) )}
             </CommandGroup>
           </CommandList>
         </Command>

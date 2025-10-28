@@ -1,8 +1,15 @@
 "use client";
 
+import { CommonButton, CommonSelect } from "@components";
 import { Badge } from "@components/ui/badge";
 import { Button } from "@components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@components/ui/card";
 import { Input } from "@components/ui/input";
 import {
   Table,
@@ -12,19 +19,24 @@ import {
   TableHeader,
   TableRow,
 } from "@components/ui/table";
+import { ORDER_STATUS, type OrderStatus } from "@constants/orderStatus";
 import orders from "@data/orders.json";
+import { formatVnd } from "@utils";
+import { Search } from "lucide-react";
+import Link from "next/link";
+import styles from "./LatestOrders.module.scss";
 
-function getStatusVariant(
-  status: string,
-): "default" | "secondary" | "destructive" | "outline" {
-  switch (status) {
-    case "Completed":
+function getStatusVariant (
+  status: OrderStatus,
+) {
+  switch ( status ) {
+    case ORDER_STATUS.DELIVERED:
       return "secondary"; // Use secondary for completed (green-like)
-    case "Pending":
+    case ORDER_STATUS.PENDING:
       return "outline"; // Use outline for pending (neutral)
-    case "Rejected":
+    case ORDER_STATUS.CANCELLED:
       return "destructive"; // Use destructive for rejected (red)
-    case "Draft":
+    case ORDER_STATUS.CONFIRMED:
       return "outline"; // Use outline for draft (neutral)
     default:
       return "outline";
@@ -33,72 +45,97 @@ function getStatusVariant(
 
 export const LatestOrders = () => {
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Latest orders</CardTitle>
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm">
-            Pages
-          </Button>
-          <Button variant="default" size="sm">
-            Download
-          </Button>
-        </div>
+    <Card className={styles.latest_orders_wrapper}>
+      <CardHeader className={styles.card_header}>
+        <CardTitle className={styles.header_title}>Đơn hàng mới nhất</CardTitle>
+        <CardDescription className={styles.header_description}>
+          Trong tháng 12, 2025
+        </CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="mb-6">
-          <div className="flex gap-2">
-            <Input placeholder="Search item" className="flex-1" />
-            <Button variant="outline">Search</Button>
+      <CardContent className={styles.card_content}>
+        <section className={styles.filter_section}>
+          <div className={styles.filter_type}>
+            <span className={styles.filter_label}>Thể loại</span>
+            <CommonSelect
+              placeholder="Tất cả"
+              options={[
+                { label: "Tất cả", value: "all" },
+                { label: "Đã hoàn thành", value: "completed" },
+                { label: "Chờ xử lý", value: "pending" },
+                { label: "Từ chối", value: "rejected" },
+                { label: "Bản nháp", value: "draft" },
+              ]}
+              value="all"
+              setValue={() => { }}
+            />
           </div>
-        </div>
-
-        <Table>
-          <TableHeader>
+          <div className={styles.filter_status}>
+            <span className={styles.filter_label}>Trạng thái</span>
+            <CommonSelect
+              placeholder="Tất cả"
+              options={[
+                { label: "Tất cả", value: "all" },
+                { label: "Đã gửi", value: "completed" },
+                { label: "Chờ xử lý", value: "pending" },
+                { label: "Từ chối", value: "rejected" },
+                { label: "Đang chờ", value: "draft" },
+              ]}
+              value="all"
+              setValue={() => { }}
+            />
+          </div>
+          <div className={styles.filter_search}>
+            <Search className={styles.search_icon} />
+            <Input placeholder="Search" className={styles.search_input} />
+          </div>
+        </section>
+        <Table className={styles.latest_orders_table}>
+          <TableHeader className={styles.table_header}>
             <TableRow>
-              <TableHead>Order ID</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>Order by</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Total sum</TableHead>
-              <TableHead>Action</TableHead>
+              <TableHead>Mã đơn hàng</TableHead>
+              <TableHead>Thời gian</TableHead>
+              <TableHead>Người đặt</TableHead>
+              <TableHead>Trạng thái</TableHead>
+              <TableHead>Tổng cộng</TableHead>
+              <TableHead>Hành động</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
-            {orders.slice(0, 6).map((order) => (
+          <TableBody className={styles.table_body}>
+            {orders.slice( 0, 6 ).map( ( order ) => (
               <TableRow key={order.id}>
                 <TableCell>
-                  <span className="text-primary font-medium">{order.id}</span>
+                  <Link
+                    className={styles.order_id}
+                    href={`dashboard/orders/${order.id}`}
+                  >
+                    {order.id}
+                  </Link>
                 </TableCell>
-                <TableCell className="text-muted-foreground">
-                  {order.date}
-                </TableCell>
-                <TableCell className="text-muted-foreground">
-                  {order.customer}
-                </TableCell>
-                <TableCell>
-                  <Badge variant={getStatusVariant(order.status)}>
+                <TableCell>{order.date}</TableCell>
+                <TableCell>{order.customer}</TableCell>
+                <TableCell className="">
+                  <Badge variant={getStatusVariant( order.status )}>
                     {order.status === "Completed" && "✓"} {order.status}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-muted-foreground">
-                  {order.total}
+                <TableCell >
+                  {formatVnd( Number( order.total ) )}
                 </TableCell>
                 <TableCell>
-                  <Button variant="ghost" size="sm">
-                    View detail
+                  <Button variant="outline" size="sm" className={styles.action_button}>
+                    Xem chi tiết
                   </Button>
                 </TableCell>
               </TableRow>
-            ))}
+            ) )}
           </TableBody>
         </Table>
-
-        <div className="mt-6">
-          <Button variant="outline" className="w-full">
-            View all orders
-          </Button>
+        <div className={styles.action_view_more}>
+          <CommonButton variant="secondary" >
+            Xem tất cả đơn hàng
+          </CommonButton>
         </div>
+
       </CardContent>
     </Card>
   );
