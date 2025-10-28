@@ -1,4 +1,4 @@
-import type { CartCheckoutState, UISlice } from "@store/cart-checkout";
+import type { CartCheckoutState, UISlice } from "@store/client/cart-checkout";
 import type { StateCreator } from "zustand";
 
 export const createUISlice: StateCreator<

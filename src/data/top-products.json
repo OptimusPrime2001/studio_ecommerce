@@ -1,32 +1,37 @@
 [
   {
     "id": 1,
+    "image_src": "https://ecommerce-uikit.netlify.app/images/product-tech/2.png",
     "name": "Bonaqua water 2 litres",
-    "pcs": 794,
-    "price": "$28,967"
+    "quanity": 794,
+    "price": "150000"
   },
   {
     "id": 2,
+    "image_src": "https://ecommerce-uikit.netlify.app/images/product-tech/2.png",
     "name": "Coca cola classic 0.5 litr",
-    "pcs": 138,
-    "price": "$8,710"
+    "quanity": 138,
+    "price": "8710"
   },
   {
     "id": 3,
+    "image_src": "https://ecommerce-uikit.netlify.app/images/product-tech/2.png",
     "name": "Samsung Galaxy S27 Black",
-    "pcs": 124,
-    "price": "$710"
+    "quanity": 124,
+    "price": "710"
   },
   {
     "id": 4,
+    "image_src": "https://ecommerce-uikit.netlify.app/images/product-tech/2.png",
     "name": "Miller yogi semechka 2 ltrs",
-    "pcs": 113,
-    "price": "$3,811"
+    "quanity": 113,
+    "price": "3811"
   },
   {
     "id": 5,
+    "image_src": "https://ecommerce-uikit.netlify.app/images/product-tech/2.png",
     "name": "Bounty trio large",
-    "pcs": 98,
-    "price": "$1,891"
+    "quanity": 98,
+    "price": "1891"
   }
 ]

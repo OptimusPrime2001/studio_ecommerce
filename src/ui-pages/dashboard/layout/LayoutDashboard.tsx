@@ -1,9 +1,9 @@
+import { SidebarProvider } from "@components/ui/sidebar";
 import type { Metadata } from "next";
 import type React from "react";
-import { SidebarProvider } from "@components/ui/sidebar";
-import { SidebarDashboard } from "./sidebar/Sidebar";
 import { Header } from "./header/Header";
-import styles from './LayoutDashboard.module.scss';
+import styles from "./LayoutDashboard.module.scss";
+import { SidebarDashboard } from "./sidebar/Sidebar";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -11,21 +11,18 @@ export const metadata: Metadata = {
   generator: "v0.app",
 };
 
-export const LayoutDashboard = ( {
+export const LayoutDashboard = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}> ) => {
+}>) => {
   return (
-    <SidebarProvider >
+    <SidebarProvider>
       <SidebarDashboard />
       <Header />
       <main className={styles.main_dashboard}>
-        <section className={styles.content_dashboard}>
-          {children}
-        </section>
+        <section className={styles.page_dashboard}>{children}</section>
       </main>
     </SidebarProvider>
-
   );
-}
+};

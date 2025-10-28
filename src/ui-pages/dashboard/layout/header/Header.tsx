@@ -8,7 +8,7 @@ import { cn } from "@utils";
 import { Bell, Search } from "lucide-react";
 import styles from "./Header.module.scss";
 
-export function Header () {
+export function Header() {
   const { open } = useSidebar();
 
   return (
@@ -19,6 +19,7 @@ export function Header () {
       )}
     >
       <SidebarTrigger />
+      <h1 className={styles.dashboard_title}>Dashboard </h1>
       <div className={styles.header_bar}>
         <div className={styles.search}>
           <div className={styles.search_box}>

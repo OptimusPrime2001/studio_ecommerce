@@ -11,8 +11,15 @@
   left: 0;
   right: 0;
   top: 0;
-  background-color: #FFFF;
+  background-color: #ffff;
   transition: left 0.2s linear;
+
+  .dashboard_title {
+    font-size: $f32;
+    font-weight: $semibold;
+    color: $primary;
+    line-height: $lh135;
+  }
 
   .header_bar {
     padding: $s16 $s24;
@@ -70,9 +77,6 @@
       }
     }
   }
-
-
-
 }
 
 .dashboard_header_open {

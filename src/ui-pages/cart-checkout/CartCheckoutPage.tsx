@@ -1,12 +1,11 @@
 "use client";
 import { Stepper } from "@components/ui/stepper";
-import { useCartCheckoutStore } from "@store/cart-checkout";
+import { useCartCheckoutStore } from "@store/client/cart-checkout";
 import styles from "./CarCheckoutPage.module.scss";
 import { CheckoutDetail, OrderComplete, ShoppingCart } from "./components";
 
 export const CartCheckoutPage: React.FC = () => {
-  const { currentStep, isCompleted, setCurrentStep } =
-    useCartCheckoutStore();
+  const { currentStep, isCompleted, setCurrentStep } = useCartCheckoutStore();
   const steps = [
     {
       title: "Giỏ hàng",
@@ -22,7 +21,7 @@ export const CartCheckoutPage: React.FC = () => {
     },
   ];
   const renderTitlePage = () => {
-    switch ( currentStep ) {
+    switch (currentStep) {
       case 0:
         return "Giỏ hàng";
       case 1:

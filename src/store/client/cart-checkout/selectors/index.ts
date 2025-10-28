@@ -1,4 +1,4 @@
-import type { CheckoutFormValues } from "../../../schemas/checkoutSchema";
+import type { CheckoutFormValues } from "../../../../schemas/checkoutSchema";
 import type { CartCheckoutState } from "../types";
 
 export const cartCheckoutSelector = {

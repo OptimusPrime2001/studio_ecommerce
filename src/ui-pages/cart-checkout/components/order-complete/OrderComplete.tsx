@@ -1,6 +1,6 @@
 import { CommonButton } from "@components";
 import { Badge } from "@components/ui/badge";
-import { useCartCheckoutStore } from "@store/cart-checkout";
+import { useCartCheckoutStore } from "@store/client/cart-checkout";
 import { formatVnd } from "@utils";
 import Image from "next/image";
 import styles from "./OrderComplete.module.scss";
@@ -12,14 +12,16 @@ export const OrderComplete: React.FC = () => {
       <h4>Cảm ơn bạn! 🎉 </h4>
       <h1>Đơn hàng của bạn đã được ghi nhận thành công!</h1>
       <div className={styles.products_order}>
-        {selectedProducts.map( ( p ) => (
+        {selectedProducts.map((p) => (
           <div className={styles.product_preview} key={p.id}>
             <div className={styles.product_img}>
               <Image fill src={p.image_src} alt={p.name} />
             </div>
-            <Badge variant="secondary" className={styles.product_quantity}>{p.quantity}</Badge>
+            <Badge variant="secondary" className={styles.product_quantity}>
+              {p.quantity}
+            </Badge>
           </div>
-        ) )}
+        ))}
       </div>
       {/* Tóm tắt đơn hàng */}
       <div className={styles.order_summary}>
@@ -33,7 +35,7 @@ export const OrderComplete: React.FC = () => {
         </div>
         <div className={`${styles.summary_row} ${styles.summary_total}`}>
           <span className={styles.label}>Tổng cộng:</span>
-          <span className={styles.value}>{formatVnd( total )}</span>
+          <span className={styles.value}>{formatVnd(total)}</span>
         </div>
         <div className={styles.summary_row}>
           <span className={styles.label}>Phương thức thanh toán:</span>

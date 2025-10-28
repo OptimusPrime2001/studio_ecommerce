@@ -1,9 +1,8 @@
 .main_dashboard {
   flex: 1;
   margin-top: 7rem;
-
-  .content_dashboard {
-    position: relative;
-    z-index: 10;
+  .page_dashboard {
+    padding: $s24 6rem;
+    background-color: $neutral_02;
   }
 }

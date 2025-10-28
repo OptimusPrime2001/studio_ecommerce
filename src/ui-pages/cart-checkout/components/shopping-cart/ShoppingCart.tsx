@@ -1,4 +1,12 @@
 "use client";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { CommonButton, QuantitySelector } from "@components";
 import { Button } from "@components/ui/button";
 import {
@@ -11,19 +19,11 @@ import { Label } from "@components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
 import { DEFAULT_SHIPPING_COST } from "@constants/cartCheckout";
 import cartData from "@data/shoppingCartData.json";
-import { useCartCheckoutStore } from "@store/cart-checkout";
+import { useCartCheckoutStore } from "@store/client/cart-checkout";
 import { formatVnd } from "@utils";
 import { BadgePercent, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import styles from "./ShoppingCart.module.scss";
 
 export const ShoppingCart: React.FC = () => {
@@ -36,11 +36,11 @@ export const ShoppingCart: React.FC = () => {
     total,
   } = useCartCheckoutStore();
   const handleCheckout = () => {
-    setCurrentStep( 1 );
+    setCurrentStep(1);
   };
-  useEffect( () => {
-    setSelectedProducts( cartData.items.map( ( { product } ) => product ) );
-  }, [setSelectedProducts] );
+  useEffect(() => {
+    setSelectedProducts(cartData.items.map(({ product }) => product));
+  }, [setSelectedProducts]);
   return (
     <section className={styles.cart_page_wrapper}>
       <section className={styles.cart_data}>
@@ -55,7 +55,7 @@ export const ShoppingCart: React.FC = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {selectedProducts?.map( ( product ) => (
+              {selectedProducts?.map((product) => (
                 <TableRow className={styles.table_row_item} key={product.id}>
                   <TableCell>
                     <div className={styles.product_info}>
@@ -84,21 +84,21 @@ export const ShoppingCart: React.FC = () => {
                   <TableCell className={styles.cell_quantity}>
                     <QuantitySelector
                       value={product.quantity}
-                      onValueChange={( value ) =>
-                        setQuantityProduct( product.id, value )
+                      onValueChange={(value) =>
+                        setQuantityProduct(product.id, value)
                       }
                     />
                   </TableCell>
                   <TableCell className={styles.cell_price}>
-                    {formatVnd( product.price )}
+                    {formatVnd(product.price)}
                   </TableCell>
                   <TableCell className={styles.cell_sub_total}>
                     <span className={styles.sub_total_value}>
-                      {formatVnd( product.price * product.quantity )}
+                      {formatVnd(product.price * product.quantity)}
                     </span>
                   </TableCell>
                 </TableRow>
-              ) )}
+              ))}
             </TableBody>
           </Table>
         </section>
@@ -131,7 +131,7 @@ export const ShoppingCart: React.FC = () => {
                     <Label htmlFor="express_ship">Giao hàng tiêu chuẩn</Label>
                   </div>
                   <span className={styles.shipping_cost}>
-                    {formatVnd( DEFAULT_SHIPPING_COST )} VND
+                    {formatVnd(DEFAULT_SHIPPING_COST)} VND
                   </span>
                 </Label>
               </RadioGroup>
@@ -140,12 +140,12 @@ export const ShoppingCart: React.FC = () => {
                 <div className={styles.sub_total}>
                   <span className={styles.sub_total_label}>Tạm tính</span>
                   <span className={styles.sub_total_value}>
-                    {formatVnd( subTotal )}
+                    {formatVnd(subTotal)}
                   </span>
                 </div>
                 <div className={styles.total}>
                   <span className={styles.total_label}>Tổng cộng</span>
-                  <span className={styles.total_value}>{formatVnd( total )}</span>
+                  <span className={styles.total_value}>{formatVnd(total)}</span>
                 </div>
               </div>
 

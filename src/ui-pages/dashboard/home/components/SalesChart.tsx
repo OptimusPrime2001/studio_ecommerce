@@ -1,14 +1,14 @@
 "use client";
 
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+// import {
+//   CartesianGrid,
+//   Line,
+//   LineChart,
+//   ResponsiveContainer,
+//   Tooltip,
+//   XAxis,
+//   YAxis,
+// } from "recharts";
 import {
   Card,
   CardContent,
@@ -32,30 +32,14 @@ const data = [
   { month: "Dec", sales: 15 },
 ];
 
-export function SalesChart () {
+export function SalesChart() {
   return (
-    <Card className="bg-card">
+    <Card className="bg-card flex-2">
       <CardHeader>
         <CardTitle>Sales growth chart</CardTitle>
         <CardDescription>Last 12 month</CardDescription>
       </CardHeader>
-      <CardContent>
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" />
-            <XAxis dataKey="month" stroke="var(--color-muted-foreground)" />
-            <YAxis stroke="var(--color-muted-foreground)" />
-            <Tooltip />
-            <Line
-              type="monotone"
-              dataKey="sales"
-              stroke="var(--color-chart-1)"
-              strokeWidth={2}
-              dot={false}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </CardContent>
+      <CardContent>Chart</CardContent>
     </Card>
   );
 }

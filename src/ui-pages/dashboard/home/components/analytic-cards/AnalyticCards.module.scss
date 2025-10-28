@@ -1,73 +1,86 @@
-.cards_grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: $s16;
-
-  @include media-breakpoint-up(md) {
-    grid-template-columns: repeat(2, 1fr);
+.cards_analytic_wrapper {
+  background-color: #ffffff;
+  padding: $s24;
+  border-radius: $s14;
+  box-shadow: $shadow_03;
+  .cards_analytic_title {
+    font-size: $f24;
+    font-weight: $bold;
+    margin-bottom: $s12;
   }
 
-  @include media-breakpoint-up(lg) {
+  .cards_analytic_subtitle {
+    font-size: $f14;
+    color: $neutral_05;
+    margin-bottom: $s24;
+  }
+
+  .cards_analytic_grid {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
-  }
+    gap: $s16;
+    .card_wrapper {
+      padding: 0;
+      box-shadow: none;
+      border-radius: $s12;
+      background: $infor_light;
+      .inner_icon {
+        background-color: $infor;
+        color: $infor_light;
+      }
+      &:nth-child(2) {
+        background: $success_light;
+        .inner_icon {
+          color: $success_light;
+          background-color: $success;
+        }
+      }
+      &:nth-child(3) {
+        background: $warning_light;
+        .inner_icon {
+          color: $warning_light;
+          background-color: $warning;
+        }
+      }
+      &:nth-child(4) {
+        background: $danger_light;
+        .inner_icon {
+          color: $danger_light;
+          background-color: $danger;
+        }
+      }
+      .card_content {
+        padding: $s24;
 
-  .card_wrapper {
-    background-color: $neutral_01;
+        .card_inner {
+          @include flex-between();
 
-    .card_content {
-      padding: $s24;
+          .inner_content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: $s10;
+            .card_value {
+              font-size: $f24;
+              font-weight: $bold;
+            }
+            .card_title {
+              font-size: $f18;
+              color: $neutral_05;
+              margin-bottom: $s8;
+              font-weight: $medium;
+            }
 
-      .card_inner {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-
-        .card_texts {
-          flex: 1;
-
-          .kpi_title {
-            font-size: $f14;
-            color: $neutral_05;
-            margin-bottom: $s8;
+            .card_subtitle {
+              font-size: $f12;
+              color: $infor;
+            }
           }
-
-          .kpi_value {
-            font-size: $f24;
-            font-weight: $bold;
-            color: $neutral_08;
-            margin-bottom: $s8;
-          }
-
-          .kpi_change_positive {
-            font-size: $f12;
-            color: $secondary_green;
-          }
-
-          .kpi_change_negative {
-            font-size: $f12;
-            color: $secondary_red;
+          .inner_icon {
+            padding: $s10;
+            border-radius: 100%;
           }
         }
-
-        .icon_wrap_positive {
-          padding: $s12;
-          border-radius: $br8;
-          background-color: #dbeafe; // blue-100
-
-          .icon {
-            width: 2.4rem;
-            height: 2.4rem;
-            color: $primary;
-          }
-        }
-
-        .icon_wrap_negative {
-          padding: $s12;
-          border-radius: $br8;
-          background-color: #fee2e2; // red-100
-        }
-
-
       }
     }
   }

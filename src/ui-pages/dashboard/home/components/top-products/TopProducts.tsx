@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,32 +8,74 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import topProducts from "@/data/top-products.json";
+import { CommonButton } from "@components";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@components/ui/table";
+import { formatVnd } from "@utils";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import styles from "./TopProducts.module.scss";
 
 export function TopProducts() {
+  const router = useRouter();
   return (
-    <Card className={styles.top_products}>
-      <CardHeader>
-        <CardTitle>Top selling products</CardTitle>
-        <CardDescription>From 2025 Jan - 2025 Dec</CardDescription>
+    <Card className={styles.top_products_wrapper}>
+      <CardHeader className={styles.card_header}>
+        <CardTitle className={styles.card_title}>
+          Top sản phẩm bán chạy nhất
+        </CardTitle>
+        <CardDescription className={styles.card_description}>
+          Trong tháng 12, 2025
+        </CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className={styles.product_list}>
-          {topProducts.map((product, index) => (
-            <div key={product.id} className={styles.product_item}>
-              <span className={styles.product_rank}>{index + 1}.</span>
-              <div className={styles.product_content}>
-                <p className={styles.product_name}>{product.name}</p>
-                <div className={styles.product_meta}>
-                  <span className={styles.product_pcs}>{product.pcs} pcs</span>
-                  <span className={styles.product_price}>{product.price}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-          <Button variant="outline" className={styles.action_view_more}>
-            View more
-          </Button>
+      <CardContent className={styles.table_top_products}>
+        <Table>
+          <TableHeader>
+            <TableRow className={styles.table_header_row}>
+              <TableHead className="w-[10rem]">Ảnh</TableHead>
+              <TableHead className="w-[10rem]">Tên sản phẩm</TableHead>
+              <TableHead className="w-[15rem]">Số lượng</TableHead>
+              <TableHead className="w-[15rem]">Giá</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {topProducts?.map((product) => (
+              <TableRow className={styles.table_top_products} key={product.id}>
+                <TableCell className={styles.cell_id}>
+                  <Image
+                    src={product.image_src}
+                    width={50}
+                    height={60}
+                    alt={product.name}
+                    className={styles.product_image}
+                  />
+                </TableCell>
+                <TableCell className={styles.cell_name}>
+                  {product.name}
+                </TableCell>
+                <TableCell className={styles.cell_quantity}>
+                  {product.quanity}
+                </TableCell>
+                <TableCell className={styles.cell_price}>
+                  {formatVnd(Number(product.price))}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <div className={styles.action_view_more}>
+          <CommonButton
+            onClick={() => router.push("/dashboard/products")}
+            variant="secondary"
+          >
+            Xem thêm
+          </CommonButton>
         </div>
       </CardContent>
     </Card>

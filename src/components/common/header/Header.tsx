@@ -12,7 +12,7 @@ import styles from "./Header.module.scss";
 
 export const Header = () => {
   const pathname = usePathname();
-  const checkMenuActive = ( label: string ) => {
+  const checkMenuActive = (label: string) => {
     return pathname === label ? "menu_active" : "menu_link";
   };
 
@@ -22,20 +22,20 @@ export const Header = () => {
         <LogoApp />
       </section>
       <ul className="iu-d-flexbetween hidden md:gap-x-6 xl:gap-x-10">
-        {MENU_NAVIGATION.map( ( item ) => (
+        {MENU_NAVIGATION.map((item) => (
           <li key={item.id}>
             <Link
-              className={cn( checkMenuActive( item.href ), "menu_hover_underline" )}
+              className={cn(checkMenuActive(item.href), "menu_hover_underline")}
               href={item.href}
             >
               {item.label}
             </Link>
           </li>
-        ) )}
+        ))}
       </ul>
       <section className="iu-d-flexbetween relative cursor-pointer gap-x-4">
         <PanelSearch />
-        <Link className="hidden h-fit md:block" href="/sign-in">
+        <Link className="hidden h-fit md:block" href="/dashboard">
           <Image src={userIcon} width={24} height={24} alt="user" />
         </Link>
         <PanelCart />

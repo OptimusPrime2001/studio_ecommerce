@@ -1,5 +1,5 @@
 import type { ProductCart } from "@shared-types/shoppingCart";
-import type { CheckoutFormValues } from "../../../schemas/checkoutSchema";
+import type { CheckoutFormValues } from "../../../../schemas/checkoutSchema";
 
 export interface UISlice {
   currentStep: number;

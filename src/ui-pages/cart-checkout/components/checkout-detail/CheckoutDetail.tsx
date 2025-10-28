@@ -7,7 +7,7 @@ import {
   checkoutDefaultValues,
   checkoutFormSchema,
 } from "@schemas";
-import { useCartCheckoutStore } from "@store/cart-checkout";
+import { useCartCheckoutStore } from "@store/client/cart-checkout";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./CheckoutDetail.module.scss";
@@ -21,34 +21,34 @@ import {
 export const CheckoutDetail: React.FC = () => {
   const { setCheckoutForm, updateCheckoutForm, setCurrentStep, checkoutForm } =
     useCartCheckoutStore();
-  const form = useForm<CheckoutFormValues>( {
-    resolver: zodResolver( checkoutFormSchema ),
+  const form = useForm<CheckoutFormValues>({
+    resolver: zodResolver(checkoutFormSchema),
     defaultValues: checkoutDefaultValues,
     mode: "onSubmit",
-  } );
+  });
 
-  useEffect( () => {
-    setCheckoutForm( form.getValues() );
-    const sub = form.watch( ( values ) => {
-      updateCheckoutForm( values as CheckoutFormValues );
-    } );
+  useEffect(() => {
+    setCheckoutForm(form.getValues());
+    const sub = form.watch((values) => {
+      updateCheckoutForm(values as CheckoutFormValues);
+    });
     return () => sub.unsubscribe();
-  }, [form, setCheckoutForm, updateCheckoutForm] );
+  }, [form, setCheckoutForm, updateCheckoutForm]);
 
-  const onSubmit = ( values: CheckoutFormValues ) => {
-    setCheckoutForm( values );
-    setCurrentStep( 2 );
+  const onSubmit = (values: CheckoutFormValues) => {
+    setCheckoutForm(values);
+    setCurrentStep(2);
   };
   // biome-ignore lint/correctness/useExhaustiveDependencies: <Must empty dependency array to avoide reset form when checkoutForm changes>
-  useEffect( () => {
-    form.reset( checkoutForm );
-  }, [] );
+  useEffect(() => {
+    form.reset(checkoutForm);
+  }, []);
   return (
     <div className={styles.checkout_detail_wrapper}>
       <Form {...form}>
         <form
           className={styles.checkout_form_content}
-          onSubmit={form.handleSubmit( onSubmit )}
+          onSubmit={form.handleSubmit(onSubmit)}
           noValidate
         >
           <ContactInfor form={form} />
