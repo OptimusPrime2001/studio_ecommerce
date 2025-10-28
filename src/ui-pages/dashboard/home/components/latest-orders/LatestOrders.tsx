@@ -1,7 +1,6 @@
 "use client";
 
-import { CommonButton, CommonSelect } from "@components";
-import { Badge } from "@components/ui/badge";
+import { BadgeStatus, CommonButton, CommonSelect } from "@components";
 import { Button } from "@components/ui/button";
 import {
   Card,
@@ -19,29 +18,14 @@ import {
   TableHeader,
   TableRow,
 } from "@components/ui/table";
-import { ORDER_STATUS, type OrderStatus } from "@constants/orderStatus";
+import { type EntityStatus } from "@constants/entityStatus";
 import orders from "@data/orders.json";
 import { formatVnd } from "@utils";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import styles from "./LatestOrders.module.scss";
 
-function getStatusVariant (
-  status: OrderStatus,
-) {
-  switch ( status ) {
-    case ORDER_STATUS.DELIVERED:
-      return "secondary"; // Use secondary for completed (green-like)
-    case ORDER_STATUS.PENDING:
-      return "outline"; // Use outline for pending (neutral)
-    case ORDER_STATUS.CANCELLED:
-      return "destructive"; // Use destructive for rejected (red)
-    case ORDER_STATUS.CONFIRMED:
-      return "outline"; // Use outline for draft (neutral)
-    default:
-      return "outline";
-  }
-}
+
 
 export const LatestOrders = () => {
   return (
@@ -114,9 +98,7 @@ export const LatestOrders = () => {
                 <TableCell>{order.date}</TableCell>
                 <TableCell>{order.customer}</TableCell>
                 <TableCell className="">
-                  <Badge variant={getStatusVariant( order.status )}>
-                    {order.status === "Completed" && "✓"} {order.status}
-                  </Badge>
+                  <BadgeStatus status={order.status as EntityStatus} />
                 </TableCell>
                 <TableCell >
                   {formatVnd( Number( order.total ) )}

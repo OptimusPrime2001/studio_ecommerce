@@ -1,0 +1,39 @@
+.badge_status {
+  display: flex;
+  align-items: center;
+  gap: $s4;
+  padding: $s4 $s8;
+  font-weight: $medium;
+  font-size: $f12;
+  display: inline-flex;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $s16;
+  min-height: 2.8rem;
+}
+
+.pending {
+  border: 1px solid #fdba74;
+  color: #d14f09;
+  background-color: #ffedd5;
+}
+
+.completed {
+  border: 1px solid $success;
+  color: $success;
+  background-color: $success_light;
+}
+
+.rejected {
+  border: 1px solid $danger;
+  color: $danger;
+  background-color: $danger_light;
+}
+
+.draft {
+  border: 1px solid $draft;
+  color: $draft;
+  background-color: $draft_light;
+}

@@ -18,7 +18,8 @@
 .select_content {
   border-radius: $s8;
   padding: $s4;
-  max-width: 15rem;
+  width: fit-content;
+  min-width: 18rem;
 
   .select_item {
     padding: $s8 $s10;
